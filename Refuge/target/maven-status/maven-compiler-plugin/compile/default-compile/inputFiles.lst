@@ -1,2 +1,14 @@
-/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/refuge/App.java
-/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/refuge/Interface/Client.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Model/Employee.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Font.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/App.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Window.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/View/Employee.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/View/Client.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Button.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Control/Database.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Dimension.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Model/Animal.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Form.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Bar.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/Swinger/Table.java
+/home/mico/Documents/ecole/Concepts3/projet-app-bureau-refuge-chats-chiens/Refuge/src/main/java/Refuge/View/Admin.java
