@@ -4,14 +4,12 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import java.awt.Dimension;
-import java.awt.Point;
 import java.awt.Toolkit;
 
 public class Window extends JFrame {
-  private static Point size = new Point(1200, 800);
+  private Dimension size = new Dimension(1200, 800);
 
   public Window() {
-    // Initialize object
     try {
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
     } catch (Exception e) {
@@ -21,16 +19,16 @@ public class Window extends JFrame {
     SwingUtilities.invokeLater(() -> {
       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-      // Application app = new Application();
-
       setBounds(
-          (screenSize.width - size.x) / 2,
-          (screenSize.height - size.y) / 2,
-          size.x, size.y);
-
+          (screenSize.width - size.width) / 2,
+          (screenSize.height - size.height) / 2,
+          size.width, size.height);
       setExtendedState(JFrame.NORMAL);
-      //
-      // app.setVisible(true);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     });
+  }
+
+  public void open() {
+    setVisible(true);
   }
 }
