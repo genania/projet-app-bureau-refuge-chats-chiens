@@ -3,11 +3,14 @@ package Refuge.Swinger;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-public class Window extends JFrame {
-  private Dimension size = new Dimension(1200, 800);
+public class Window extends JFrame implements Palette {
+
+  Color background = DARK0_HARD;
 
   public Window() {
     try {
@@ -17,18 +20,19 @@ public class Window extends JFrame {
     }
 
     SwingUtilities.invokeLater(() -> {
-      Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-      setBounds(
-          (screenSize.width - size.width) / 2,
-          (screenSize.height - size.height) / 2,
-          size.width, size.height);
-      setExtendedState(JFrame.NORMAL);
+      setExtendedState(JFrame.MAXIMIZED_BOTH);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      getContentPane().setBackground(background);
+      setLayout(null);
     });
   }
 
   public void open() {
     setVisible(true);
+  }
+
+  public Dimension getSize() {
+    return Toolkit.getDefaultToolkit().getScreenSize();
   }
 }
