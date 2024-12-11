@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import Refuge.Control.Connexion;
 import Refuge.Control.Database;
 import Refuge.Swinger.*;
+import Refuge.View.Login;
 
 public class App {
 
@@ -20,15 +21,16 @@ public class App {
 
     Bar bar = new Bar();
 
-    bar.addButton("Hello");
-    bar.addButton("Hi");
-    bar.addButton("Wazaaa");
+    bar.addButton("Lister");
+    bar.addButton("Trier");
+    bar.addButton("Chercher");
 
     window.add(bar);
 
-    window.add(new Field("Hello", new Frame(0.1, 0.1, 0.2, 0.025)));
-    window.add(new Label("World", new Frame(0.1, 0.075, 0.2, 0.025)));
+    Login.open(window);
+
     window.open();
+
   }
 
   public static Dimension getSize() {

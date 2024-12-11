@@ -12,6 +12,13 @@ public class Label extends JLabel {
     customize();
   }
 
+  public Label(String text, double x, double y) {
+    this.frame = new Frame(x, y, this.frame.getWidth(), this.frame.getHeight());
+    setBounds(this.frame.toRectangle());
+
+    customize();
+  }
+
   public Label(Frame frame) {
     this.frame = frame;
     setBounds(this.frame.toRectangle());
