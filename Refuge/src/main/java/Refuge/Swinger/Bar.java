@@ -22,11 +22,12 @@ public class Bar extends JPanel implements Palette {
     setBounds(this.frame.toRectangle());
   }
 
-  public void addButton(Button button) {
+  public void addButton(String name) {
     double others = this.buttons.size();
     double width = this.frame.getWidth() * 0.1;
 
-    button = new Button(
+    Button button = new Button(
+        name,
         padding.getwidth() + padding.getwidth() * others + width * others,
         padding.getheight(),
         width,

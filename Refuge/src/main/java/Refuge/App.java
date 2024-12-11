@@ -20,31 +20,10 @@ public class App {
 
     Bar bar = new Bar();
 
-    bar.addButton(new Button());
-    bar.addButton(new Button());
-    bar.addButton(new Button());
-    // Button button1 = new Button(
-    // bar.getFrame().getX() + bar.getPadding().getwidth(),
-    // bar.getFrame().getY() + bar.getPadding().getheight(),
-    // bar.getFrame().getWidth() * 0.1,
-    // bar.getFrame().getHeight() * 0.8);
-    // Button button2 = new Button(
-    // bar.getFrame().getX() + bar.getPadding().getwidth() * 2.0 +
-    // button1.getFrame().getWidth(),
-    // bar.getFrame().getY() + bar.getPadding().getheight(),
-    // bar.getFrame().getWidth() * 0.1,
-    // bar.getFrame().getHeight() * 0.8);
-    // Button button3 = new Button(
-    // bar.getFrame().getX() + bar.getPadding().getwidth() * 3.0 +
-    // button1.getFrame().getWidth() * 2.0,
-    // bar.getFrame().getY() + bar.getPadding().getheight(),
-    // bar.getFrame().getWidth() * 0.1,
-    // bar.getFrame().getHeight() * 0.8);
-    //
-    // bar.add(button1);
-    // bar.add(button2);
-    // bar.add(button3);
-    //
+    bar.addButton("Hello");
+    bar.addButton("Hi");
+    bar.addButton("Wazaaa");
+
     window.add(bar);
 
     window.open();

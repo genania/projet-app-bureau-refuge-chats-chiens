@@ -40,4 +40,9 @@ public class Size {
 
     return new Dimension((int) (width * window.width), (int) (height * window.height));
   }
+
+  @Override
+  public String toString() {
+    return "Size [width=" + width + ", height=" + height + "]";
+  }
 }
