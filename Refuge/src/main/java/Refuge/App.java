@@ -27,6 +27,7 @@ public class App {
     window.add(bar);
 
     window.add(new Field("Hello", new Frame(0.1, 0.1, 0.2, 0.025)));
+    window.add(new Label("World", new Frame(0.1, 0.075, 0.2, 0.025)));
     window.open();
   }
 
