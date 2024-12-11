@@ -1,8 +1,39 @@
 package Refuge.Swinger;
 
-public class Field {
+import javax.swing.*;
+import java.awt.*;
+
+public class Field extends JTextField {
+  Frame frame = new Frame(0.1, 0.1, 0.2, 0.025);
+  int alignment = LEFT;
 
   public Field() {
-    // Initialize object
+    customize();
+  }
+
+  public Field(Frame frame) {
+    this.frame = frame;
+    setBounds(this.frame.toRectangle());
+
+    customize();
+  }
+
+  public Field(String text, Frame frame) {
+    this.frame = frame;
+    setBounds(this.frame.toRectangle());
+
+    setText(text);
+
+    customize();
+  }
+
+  public void customize() {
+    setBounds(frame.toRectangle());
+    setBorder(BorderFactory.createEmptyBorder());
+    setEditable(true);
+    setBackground(Palette.PURPLE);
+    setForeground(Palette.LIGHT0_SOFT);
+    setFont(Text.MEDIUM_TEXT); // Initialize object
+    setHorizontalAlignment(alignment);
   }
 }

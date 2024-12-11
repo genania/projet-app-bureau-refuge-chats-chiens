@@ -15,10 +15,10 @@ public class Text {
   private static final double SCALE_FACTOR = calculateScaleFactor();
 
   // Dynamic font sizes based on screen resolution
-  public static final float SMALL = Math.round(12f * SCALE_FACTOR);
-  public static final float MEDIUM = Math.round(14f * SCALE_FACTOR);
-  public static final float LARGE = Math.round(16f * SCALE_FACTOR);
-  public static final float XLARGE = Math.round(20f * SCALE_FACTOR);
+  public static final float SMALL = Math.round(16f * SCALE_FACTOR);
+  public static final float MEDIUM = Math.round(18f * SCALE_FACTOR);
+  public static final float LARGE = Math.round(20f * SCALE_FACTOR);
+  public static final float XLARGE = Math.round(24f * SCALE_FACTOR);
 
   // Load and create the main font
   public static final Font MAIN = loadFont();

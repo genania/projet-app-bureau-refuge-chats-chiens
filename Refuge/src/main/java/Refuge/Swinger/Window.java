@@ -13,13 +13,8 @@ public class Window extends JFrame implements Palette {
   Color background = DARK0_HARD;
 
   public Window() {
-    // try {
-    // UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-    // } catch (Exception e) {
-    // System.out.println("Error : No look, no feel");
-    // }
-
     SwingUtilities.invokeLater(() -> {
+      setTitle("Refuge");
       setExtendedState(JFrame.MAXIMIZED_BOTH);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setResizable(false);
