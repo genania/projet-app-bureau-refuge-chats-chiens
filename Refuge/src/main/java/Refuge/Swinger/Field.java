@@ -1,8 +1,8 @@
 package Refuge.Swinger;
 
-public class Font {
+public class Field {
 
-  public Font() {
+  public Field() {
     // Initialize object
   }
 }
