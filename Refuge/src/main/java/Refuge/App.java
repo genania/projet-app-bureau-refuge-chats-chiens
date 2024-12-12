@@ -4,7 +4,7 @@ import java.awt.Dimension;
 import Refuge.Control.Connexion;
 import Refuge.Control.Database;
 import Refuge.Swinger.*;
-import Refuge.View.Login;
+import Refuge.View.*;
 
 public class App {
 
@@ -30,7 +30,6 @@ public class App {
     Login.open(window);
 
     window.open();
-
   }
 
   public static Dimension getSize() {

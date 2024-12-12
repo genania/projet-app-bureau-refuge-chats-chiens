@@ -20,8 +20,18 @@ public class Field extends JTextField {
 
   public Field(String text, Frame frame) {
     this.frame = frame;
-    setBounds(this.frame.toRectangle());
 
+    setBounds(this.frame.toRectangle());
+    setText(text);
+
+    customize();
+  }
+
+  public Field(String text, double x, double y, double width, double height) {
+
+    this.frame = new Frame(x, y, width, height);
+
+    setBounds(this.frame.toRectangle());
     setText(text);
 
     customize();

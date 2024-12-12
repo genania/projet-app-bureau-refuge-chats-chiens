@@ -1,6 +1,7 @@
 package Refuge.Swinger;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
@@ -10,7 +11,8 @@ public class Button extends JButton implements Palette, MouseListener {
   private Frame frame;
   private Color defaultColor = BLUE;
   private Color hoverColor = YELLOW;
-  private String defaultText;
+  private String defaultText = "";
+  private ButtonClickHandler clickHandler;
 
   public Button() {
     this.frame = new Frame();
@@ -71,6 +73,52 @@ public class Button extends JButton implements Palette, MouseListener {
     addMouseListener(this);
   }
 
+  @FunctionalInterface
+  public interface ButtonClickHandler {
+    void onClick();
+  }
+
+  public void setOnClick(ButtonClickHandler handler) {
+    this.clickHandler = handler;
+    // Remove any existing action listeners to prevent duplicates
+    for (ActionListener al : getActionListeners()) {
+      removeActionListener(al);
+    }
+    // Add new action listener
+    addActionListener(e -> {
+      if (clickHandler != null) {
+        clickHandler.onClick();
+      }
+    });
+  }
+
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    if (clickHandler != null) {
+      clickHandler.onClick();
+    }
+  }
+
+  @Override
+  public void mousePressed(MouseEvent e) {
+    // Add press behavior if needed
+  }
+
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // Add release behavior if needed
+  }
+
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    setBackground(YELLOW);
+  }
+
+  @Override
+  public void mouseExited(MouseEvent e) {
+    setBackground(defaultColor);
+  }
+
   // Getters and Setters
   public Frame getFrame() {
     return frame;
@@ -96,31 +144,5 @@ public class Button extends JButton implements Palette, MouseListener {
 
   public void setHoverColor(Color color) {
     this.hoverColor = color;
-  }
-
-  // MouseListener Implementation
-  @Override
-  public void mouseClicked(MouseEvent e) {
-    // Add click behavior if needed
-  }
-
-  @Override
-  public void mousePressed(MouseEvent e) {
-    // Add press behavior if needed
-  }
-
-  @Override
-  public void mouseReleased(MouseEvent e) {
-    // Add release behavior if needed
-  }
-
-  @Override
-  public void mouseEntered(MouseEvent e) {
-    setBackground(YELLOW);
-  }
-
-  @Override
-  public void mouseExited(MouseEvent e) {
-    setBackground(defaultColor);
   }
 }

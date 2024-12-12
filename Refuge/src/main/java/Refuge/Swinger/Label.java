@@ -19,10 +19,18 @@ public class Label extends JLabel {
     customize();
   }
 
+  public Label(String text, double x, double y, double width, double height) {
+    this.frame = new Frame(x, y, width, height);
+
+    setText(text);
+    setBounds(this.frame.toRectangle());
+    customize();
+  }
+
   public Label(Frame frame) {
     this.frame = frame;
-    setBounds(this.frame.toRectangle());
 
+    setBounds(this.frame.toRectangle());
     customize();
   }
 
@@ -38,7 +46,7 @@ public class Label extends JLabel {
   public void customize() {
     setBounds(frame.toRectangle());
     setBorder(BorderFactory.createEmptyBorder());
-    setBackground(Palette.PURPLE);
+    // setBackground(Palette.PURPLE);
     setForeground(Palette.LIGHT0_SOFT);
     setFont(Text.MEDIUM_TEXT); // Initialize object
     setHorizontalAlignment(alignment);

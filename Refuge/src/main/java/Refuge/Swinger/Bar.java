@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class Bar extends JPanel implements Palette {
 
   private Frame frame = new Frame();
-  private Color color = GREEN;
+  private Color color = DARK0_SOFT;
   private Size padding = new Size(0.01, 0.01);
   public ArrayList<Button> buttons = new ArrayList<Button>(); // buttons
 
