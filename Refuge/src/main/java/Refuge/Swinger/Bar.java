@@ -30,7 +30,7 @@ public class Bar extends JPanel implements Palette {
   }
 
   private void addLogo() {
-    Icon icon = new Icon("/icones/placeholder.png", 0.01, 0.0075, this.frame.getHeight() / 2.0);
+    Icon icon = new Icon("/icones/placeholder.png", 0.01, this.frame.getHeight() / 4.0, this.frame.getHeight() / 2.0);
 
     icon.setBackgroundColor(this.color);
     icon.setColor(Palette.LIGHT0_SOFT);
