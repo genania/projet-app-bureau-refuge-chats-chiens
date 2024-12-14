@@ -19,9 +19,9 @@ public class Icon extends JPanel {
   private Color background = Palette.RED;
 
   // public Icon(String resourcePath, double x, double y, double size) {
-  // double height = size * (double) App.getSize().getWidth() / (double)
-  // App.getSize().getHeight();
-  // this.frame = new Frame(x, y, size, height);
+  // double width = size * ((double) App.getSize().getHeight() / (double)
+  // App.getSize().getWidth());
+  // this.frame = new Frame(x, y, width, size);
   // Rectangle rect = this.frame.toRectangle();
   // setBounds(rect);
   // setBackground(Palette.AQUA);
@@ -42,9 +42,14 @@ public class Icon extends JPanel {
   // e.printStackTrace();
   // }
   // }
+
   public Icon(String resourcePath, double x, double y, double size) {
+    double ratio = App.getSize().getHeight() / App.getSize().getWidth();
+    // double iconSize = 0.15;
+    double xIcon = (1 - size * ratio) / (1 / x);
+
     double width = size * ((double) App.getSize().getHeight() / (double) App.getSize().getWidth());
-    this.frame = new Frame(x, y, width, size);
+    this.frame = new Frame(xIcon, y, width, size);
     Rectangle rect = this.frame.toRectangle();
     setBounds(rect);
     setBackground(Palette.AQUA);
@@ -65,6 +70,7 @@ public class Icon extends JPanel {
       e.printStackTrace();
     }
   }
+
   // public Icon(String resourcePath, double x, double y, double size) {
   // double ratio = (double) App.getSize().getHeight() / (double)
   // App.getSize().getWidth();

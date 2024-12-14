@@ -8,12 +8,12 @@ import Refuge.Model.*;
 public class Welcome extends Page {
 
   public static void open(Window window) {
-    double ratio = App.getSize().getHeight() / App.getSize().getWidth();
-    double iconSize = 0.15;
-    double xIcon = (1 - iconSize * ratio) / 2;
+    // double ratio = App.getSize().getHeight() / App.getSize().getWidth();
+    // double iconSize = 0.15;
+    // double xIcon = (1 - iconSize * ratio) / 2;
 
-    Icon icon = new Icon("/icones/placeholder.png", xIcon, 0.175, iconSize);
-    // Icon icon = new Icon("/icones/placeholder.png", 0.45, 0.175, 0.1);
+    // Icon icon = new Icon("/icones/placeholder.png", xIcon, 0.175, iconSize);
+    Icon icon = new Icon("/icones/placeholder.png", 0.5, 0.175, 0.1);
 
     icon.setBackground(Palette.DARK0_SOFT);
     icon.setColor(Palette.LIGHT0_SOFT);

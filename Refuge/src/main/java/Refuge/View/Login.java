@@ -13,7 +13,7 @@ public class Login extends Page {
   public static Button connect = new Button("Se connecter", 0.4, 0.525, 0.2, 0.025);
 
   public static void open(Window window) {
-    Icon icon = new Icon("/icones/placeholder.png", 0.45, 0.175, 0.1);
+    Icon icon = new Icon("/icones/placeholder.png", 0.5, 0.175, 0.1);
 
     icon.setBackground(Palette.ORANGE);
     icon.setColor(Palette.YELLOW);
