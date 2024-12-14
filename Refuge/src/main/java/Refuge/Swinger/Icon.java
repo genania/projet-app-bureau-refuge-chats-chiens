@@ -3,6 +3,8 @@ package Refuge.Swinger;
 import javax.swing.*;
 import Refuge.App;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.IOException;
@@ -13,6 +15,8 @@ public class Icon extends JPanel {
   private BufferedImage originalImage;
   private BufferedImage coloredImage;
   private Color currentColor = Palette.RED;
+  private Color hover = Palette.YELLOW;
+  private Color background = Palette.RED;
 
   public Icon(String resourcePath, double x, double y, double size) {
     double width = size * (double) App.getSize().getWidth() / (double) App.getSize().getHeight();
@@ -37,10 +41,37 @@ public class Icon extends JPanel {
     }
   }
 
+  public void addClick(Runnable action) {
+    addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseClicked(MouseEvent e) {
+        action.run();
+      }
+    });
+  }
+
   public void setColor(Color color) {
     this.currentColor = color;
     updateColoredImage();
     repaint();
+  }
+
+  public void setHoverColor(Color color) {
+    hover = color;
+    addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        setBackground(hover);
+      }
+
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        setBackground(background);
+      }
+    });
+  }
+
+  public void setBackgroundColor(Color color) {
+    super.setBackground(color);
+    background = color;
   }
 
   private void updateColoredImage() {

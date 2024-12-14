@@ -7,12 +7,10 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-public class Button extends JButton implements Palette, MouseListener {
+public class Button extends JButton implements Palette {
   private Frame frame;
   private Color defaultColor = BLUE;
   private Color hoverColor = YELLOW;
-  private String defaultText = "";
-  private ButtonClickHandler clickHandler;
 
   public Button() {
     this.frame = new Frame();
@@ -54,14 +52,12 @@ public class Button extends JButton implements Palette, MouseListener {
 
   public Button(String name, double x, double y, double width, double height) {
     this.frame = new Frame(x, y, width, height);
-    this.defaultText = name;
 
     setText(name);
     customize();
   }
 
   private void customize() {
-    setBorder(BorderFactory.createEmptyBorder());
     setOpaque(true);
     setBorderPainted(false);
     setBounds(frame.toRectangle());
@@ -69,58 +65,28 @@ public class Button extends JButton implements Palette, MouseListener {
     setForeground(LIGHT0_SOFT);
     setFocusPainted(false);
     setFont(Text.MEDIUM_TEXT);
-    // Add this button as its own MouseListener
-    addMouseListener(this);
+    setupHoverEffect();
   }
 
-  @FunctionalInterface
-  public interface ButtonClickHandler {
-    void onClick();
-  }
+  private void setupHoverEffect() {
+    addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseEntered(java.awt.event.MouseEvent evt) {
+        setBackground(hoverColor);
+      }
 
-  public void setOnClick(ButtonClickHandler handler) {
-    this.clickHandler = handler;
-    // Remove any existing action listeners to prevent duplicates
-    for (ActionListener al : getActionListeners()) {
-      removeActionListener(al);
-    }
-    // Add new action listener
-    addActionListener(e -> {
-      if (clickHandler != null) {
-        clickHandler.onClick();
+      public void mouseExited(java.awt.event.MouseEvent evt) {
+        setBackground(defaultColor);
       }
     });
   }
 
-  @Override
-  public void mouseClicked(MouseEvent e) {
-    if (clickHandler != null) {
-      clickHandler.onClick();
-    }
-  }
-
-  @Override
-  public void mousePressed(MouseEvent e) {
-    // Add press behavior if needed
-  }
-
-  @Override
-  public void mouseReleased(MouseEvent e) {
-    // Add release behavior if needed
-  }
-
-  @Override
-  public void mouseEntered(MouseEvent e) {
-    setBackground(YELLOW);
-  }
-
-  @Override
-  public void mouseExited(MouseEvent e) {
-    setBackground(defaultColor);
+  public void onClick(Runnable action) {
+    addActionListener(e -> action.run());
   }
 
   // Getters and Setters
   public Frame getFrame() {
+
     return frame;
   }
 

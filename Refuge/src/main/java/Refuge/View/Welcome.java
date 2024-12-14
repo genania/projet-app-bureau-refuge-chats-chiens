@@ -1,0 +1,39 @@
+package Refuge.View;
+
+import Refuge.Swinger.*;
+import Refuge.Model.*;
+
+public class Welcome extends Page {
+
+  public static void open(Window window) {
+    Icon icon = new Icon("/icones/placeholder.png", 0.45, 0.175, 0.1);
+
+    icon.setBackground(Palette.DARK0_SOFT);
+    icon.setColor(Palette.LIGHT0_SOFT);
+
+    window.put(icon);
+    window.put(new Label("Parapluie", 0.475, 0.35, 0.2, 0.025));
+
+    Button visitor = new Button("Visiter", 0.4, 0.425, 0.2, 0.025);
+
+    visitor.onClick(() -> visit(window));
+
+    Button connect = new Button("Se connecter", 0.4, 0.475, 0.2, 0.025);
+
+    connect.onClick(() -> login(window));
+
+    window.put(visitor);
+    window.put(connect);
+  }
+
+  private static void visit(Window window) {
+    clear(window);
+    Animals.open(window);
+
+  }
+
+  private static void login(Window window) {
+    clear(window);
+    Login.open(window);
+  }
+}

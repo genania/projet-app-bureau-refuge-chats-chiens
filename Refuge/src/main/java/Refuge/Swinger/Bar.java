@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import Refuge.App;
+import Refuge.View.Login;
+import Refuge.View.Welcome;
+
 public class Bar extends JPanel implements Palette {
 
   private Frame frame = new Frame();
@@ -20,6 +24,29 @@ public class Bar extends JPanel implements Palette {
     setLayout(null);
     setBackground(this.color);
     setBounds(this.frame.toRectangle());
+
+    addLogo();
+    addAccount();
+  }
+
+  private void addLogo() {
+    Icon icon = new Icon("/icones/placeholder.png", 0.01, 0.0075, this.frame.getHeight() / 2.0);
+
+    icon.setBackgroundColor(this.color);
+    icon.setColor(Palette.LIGHT0_SOFT);
+
+    icon.addClick(() -> {
+      App.getWindow().clear();
+      Welcome.open(App.getWindow());
+    });
+    icon.setHoverColor(Palette.YELLOW);
+    add(icon);
+  }
+
+  private void addAccount() {
+    Label name = new Label(Login.getAccount().getUsername(), 0.925, 0.015, 0.1, 0.1);
+
+    add(name);
   }
 
   public void addButton(String name) {
@@ -28,7 +55,7 @@ public class Bar extends JPanel implements Palette {
 
     Button button = new Button(
         name,
-        padding.getwidth() + padding.getwidth() * others + width * others,
+        this.frame.getHeight() + padding.getwidth() + padding.getwidth() * others + width * others,
         padding.getheight(),
         width,
         frame.getHeight() * 0.6);

@@ -5,30 +5,28 @@ import Refuge.Control.Connexion;
 import Refuge.Control.Database;
 import Refuge.Swinger.*;
 import Refuge.View.*;
+import Refuge.Model.*;
 
 public class App {
 
   private static Dimension size = new Dimension();
+  private static Window window = new Window();
 
   public static void main(String[] args) {
+
+    // TODO:
+    // Code temporaire qui reussit a se connecter sur mon ordi et ajoute un film
 
     // Database database = new Database();
     // Database.ajouterFilm("Inception", "Christopher Nolan", 2010);
 
-    Window window = new Window();
+    Account.addAccount(new Visitor());
 
     size = window.getSize();
 
-    Bar bar = new Bar();
+    Welcome.open(window);
 
-    bar.addButton("Lister");
-    bar.addButton("Trier");
-    bar.addButton("Chercher");
-
-    window.add(bar);
-
-    Login.open(window);
-
+    window.showBar();
     window.open();
   }
 
@@ -38,5 +36,13 @@ public class App {
 
   public static void setSize(Dimension size) {
     App.size = size;
+  }
+
+  public static Window getWindow() {
+    return window;
+  }
+
+  public static void setWindow(Window window) {
+    App.window = window;
   }
 }
