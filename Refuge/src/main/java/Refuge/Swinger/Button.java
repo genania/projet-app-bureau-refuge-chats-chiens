@@ -57,6 +57,12 @@ public class Button extends JButton implements Palette {
     customize();
   }
 
+  public Button(String name) {
+    this.frame = new Frame(0.1, 0.05); // Taille par défaut : largeur et hauteur
+    setText(name); // Définit le texte du bouton
+    customize(); // Applique les styles par défaut
+  }
+
   private void customize() {
     setOpaque(true);
     setBorderPainted(false);

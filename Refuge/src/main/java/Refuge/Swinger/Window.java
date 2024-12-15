@@ -1,21 +1,13 @@
 package Refuge.Swinger;
 
-import javax.swing.AbstractAction;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Window extends JFrame implements Palette {
 
-  Color background = DARK0_HARD;
+  private Color background = DARK0_HARD;
+  private Bar bar; // Variable membre pour la barre
 
   public Window() {
     SwingUtilities.invokeLater(() -> {
@@ -40,20 +32,23 @@ public class Window extends JFrame implements Palette {
   }
 
   public void showBar() {
-    Bar bar = new Bar();
+    if (bar != null) { // Ajouter la barre si elle est définie
+      add(bar);
+      bar.setVisible(true);
+    }
+  }
 
-    bar.addButton("Lister");
-    bar.addButton("Trier");
-    bar.addButton("Chercher");
+  public void setBar(Bar bar) { // Setter pour la barre
+    this.bar = bar;
+  }
 
-    add(bar);
+  public Bar getBar() { // Getter pour la barre
+    return this.bar;
   }
 
   public void clear() {
     getContentPane().removeAll();
-
-    showBar();
-
+    showBar(); // Affiche la barre s'il y en a une
     revalidate();
     repaint();
   }
@@ -61,17 +56,14 @@ public class Window extends JFrame implements Palette {
   public void addKeybinding(int keyCode, int modifiers, Runnable action) {
     getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
         .put(KeyStroke.getKeyStroke(keyCode, modifiers), action.toString());
-    getRootPane().getActionMap().put(action.toString(),
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent e) {
-            action.run();
-          }
-        });
+    getRootPane().getActionMap().put(action.toString(), new AbstractAction() {
+      public void actionPerformed(ActionEvent e) {
+        action.run();
+      }
+    });
   }
 
   public Dimension getSize() {
-    Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-
-    return size;
+    return Toolkit.getDefaultToolkit().getScreenSize();
   }
 }
