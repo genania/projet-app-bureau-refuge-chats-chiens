@@ -19,7 +19,11 @@ public class Welcome extends Page {
     icon.setColor(Palette.LIGHT0_SOFT);
 
     window.put(icon);
-    window.put(new Label("Parapluie", 0.485, 0.35, 0.2, 0.025));
+
+    Label nom = new Label("Parapluie", 0.4, 0.35, 0.2, 0.025);
+
+    nom.setAlign(1);
+    window.put(nom);
 
     Button visitor = new Button("Visiter", 0.4, 0.425, 0.2, 0.025);
 

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Label extends JLabel {
+
   Frame frame = new Frame(0.1, 0.1, 0.1, 0.025);
   Color color = Palette.ORANGE;
   int alignment = LEFT;
@@ -51,5 +52,17 @@ public class Label extends JLabel {
     setFont(Text.MEDIUM_TEXT); // Initialize object
     setHorizontalAlignment(alignment);
     setVerticalAlignment(TOP);
+  }
+
+  public void setAlign(int alignment) {
+    this.alignment = alignment;
+
+    switch (alignment) {
+      case 0 -> setHorizontalAlignment(LEFT);
+      case 1 -> setHorizontalAlignment(CENTER);
+      case 2 -> setHorizontalAlignment(RIGHT);
+    }
+
+    // setHorizontalAlignment(CENTER);
   }
 }
