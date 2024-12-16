@@ -17,6 +17,9 @@ public class Window extends JFrame implements Palette {
       setResizable(false);
       getContentPane().setBackground(background);
       setLayout(null);
+      // Définir une icône personnalisée pour la fenêtre
+      ImageIcon icon = new ImageIcon(getClass().getResource("/icones/placeholder.png"));
+      setIconImage(icon.getImage());
     });
 
     addKeybinding(KeyEvent.VK_ESCAPE, 0, this::dispose);
