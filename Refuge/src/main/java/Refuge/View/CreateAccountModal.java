@@ -17,6 +17,10 @@ public class CreateAccountModal extends JDialog {
     public CreateAccountModal(Frame parent) {
         super(parent, "Créer un compte", true); // Modale bloquante
 
+        // Définir une icône personnalisée pour le modal
+        ImageIcon icon = new ImageIcon(getClass().getResource("/icones/placeholder.png"));
+        setIconImage(icon.getImage());
+
         // Configuration de la fenêtre
         setSize(600, 850); // Taille fixe ajustée
         setLocationRelativeTo(parent); // Centrer la fenêtre
