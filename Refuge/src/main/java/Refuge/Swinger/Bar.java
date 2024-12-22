@@ -6,10 +6,11 @@ import java.awt.List;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-import Refuge.View.CreateAccountModal;
+
 import Refuge.App;
-import Refuge.View.Login;
-import Refuge.View.Welcome;
+import Refuge.View.Modal.CreateAccountModal;
+import Refuge.View.Page.PageLogin;
+import Refuge.View.Page.PageWelcome;
 
 public class Bar extends JPanel implements Palette {
 
@@ -56,8 +57,8 @@ public class Bar extends JPanel implements Palette {
         padding.getheight(),
         width,
         frame.getHeight() * 0.6);
-    
-        button.onClick(action);
+
+    button.onClick(action);
 
     this.boutonsGauches.add(button);
     add(button);

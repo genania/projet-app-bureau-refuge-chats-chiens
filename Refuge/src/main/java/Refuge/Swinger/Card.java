@@ -19,10 +19,10 @@ public class Card extends JPanel {
 
     customize();
 
-    add(new Label("Nom : " + animal.getName(), 0.0, 0.0, 0.5, 0.1));
-    add(new Label("Type: " + animal.getType(), 0.0, 0.025, 0.5, 0.1));
-    add(new Label("Age : " + animal.getAge(), 0.0, 0.05, 0.5, 0.1));
-    add(new Label("Poids : " + String.format("%.2f", animal.getWeight()), 0.0, 0.075, 0.5, 0.1));
+    add(new Label("Nom : " + animal.getNom(), 0.0, 0.0, 0.5, 0.1));
+    add(new Label("Type : " + animal.getEspece(), 0.0, 0.025, 0.5, 0.1));
+    add(new Label("Age : " + animal.getAgeMois(), 0.0, 0.05, 0.5, 0.1));
+    add(new Label("Race : " + animal.getRace(), 0.0, 0.075, 0.5, 0.1));
 
     // Add hover effect
     addMouseListener(new MouseAdapter() {

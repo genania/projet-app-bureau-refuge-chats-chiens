@@ -17,10 +17,11 @@ public class BarEmployer extends BarBase {
     }
 
     private void ajouterBoutonsDroite() {
-        ajouterBoutonChat();
+        ajouterBoutonAjouterAnimal();
         ajouterBoutonChien();
+        ajouterBoutonChat();
         ajouterBoutonRecherche();
-        ajouterBoutonTrier();
+
     }
 
     private void ajouterBoutonChat() {
@@ -41,9 +42,9 @@ public class BarEmployer extends BarBase {
         });
     }
 
-    private void ajouterBoutonTrier() {
-        ajouterBoutonDroit("Trier", () -> {
-            System.out.println("Page Trier ouverte");
+    private void ajouterBoutonAjouterAnimal() {
+        ajouterBoutonDroit("Ajouter un Animal", () -> {
+            System.out.println("Page Ajouter un Animal ouverte");
         });
     }
 }

@@ -14,10 +14,11 @@ public class BarAdmin extends BarBase {
     }
 
     private void ajouterBoutonsDroite() {
-        ajouterBoutonAjouterAnimal();
-        ajouterBoutonChat();
-        ajouterBoutonChien();
         ajouterBoutonEmployer();
+        ajouterBoutonAjouterAnimal();
+        ajouterBoutonChien();
+        ajouterBoutonChat();
+        ajouterBoutonRecherche();
     }
 
     private void ajouterBoutonAjouterAnimal() {
@@ -41,6 +42,12 @@ public class BarAdmin extends BarBase {
     private void ajouterBoutonEmployer() {
         ajouterBoutonDroit("Employer", () -> {
             System.out.println("Page Employer ouverte");
+        });
+    }
+
+    private void ajouterBoutonRecherche() {
+        ajouterBoutonDroit("Recherche", () -> {
+            System.out.println("Page Recherche ouverte");
         });
     }
 }

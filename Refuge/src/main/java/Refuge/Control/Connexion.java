@@ -12,13 +12,13 @@ public class Connexion {
   // Note: If using Docker Toolbox on Windows, you might need to use
   // "host.docker.internal" instead of "localhost"
   private static final String DB_HOST = "localhost";
-  private static final String DB_PORT = "3300"; // Should match your ${MYSQL_PORT}
-  private static final String DB_NAME = "bdfilmsa24";
+  private static final String DB_PORT = "3306"; // Should match your ${MYSQL_PORT}
+  private static final String DB_NAME = "bd_refuge";
   private static final String DB_URL = String.format(
       "jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
       DB_HOST, DB_PORT, DB_NAME);
-  private static final String DB_USER = "root";
-  private static final String DB_PASSWORD = "ok"; // Should match your ${MYSQL_ROOT_PASSWORD}
+  private static final String DB_USER = "user_refuge";
+  private static final String DB_PASSWORD = "fg4HGTr85h28"; // Should match your ${MYSQL_ROOT_PASSWORD}
 
   // Database connection objects
   private Connection connexion;
@@ -60,26 +60,26 @@ public class Connexion {
   }
 
   // Close all resources
-  public void closeConnection() {
-    try {
-      if (resultSet != null) {
-        resultSet.close();
-      }
-      if (statement != null) {
-        statement.close();
-      }
-      if (preparedStatement != null) {
-        preparedStatement.close();
-      }
-      if (connexion != null) {
-        connexion.close();
-        System.out.println("Database connection closed successfully!");
-      }
-    } catch (SQLException e) {
-      System.err.println("Error closing database resources!");
-      e.printStackTrace();
-    }
-  }
+  // public void closeConnection() {
+  // try {
+  // if (resultSet != null) {
+  // resultSet.close();
+  // }
+  // if (statement != null) {
+  // statement.close();
+  // }
+  // if (preparedStatement != null) {
+  // preparedStatement.close();
+  // }
+  // if (connexion != null) {
+  // connexion.close();
+  // System.out.println("Database connection closed successfully!");
+  // }
+  // } catch (SQLException e) {
+  // System.err.println("Error closing database resources!");
+  // e.printStackTrace();
+  // }
+  // }
 
   // Test if connection is valid
   public boolean isConnected() {
@@ -90,23 +90,23 @@ public class Connexion {
     }
   }
 
-  // Method to test the connection
-  public static void test(String[] args) {
-    Connexion conn = new Connexion();
+  // // Method to test the connection
+  // public static void test(String[] args) {
+  // Connexion conn = new Connexion();
 
-    if (conn.isConnected()) {
-      System.out.println("Connection test successful!");
-      // Try to create the database if it doesn't exist
-      try {
-        Statement stmt = conn.getConnection().createStatement();
-        stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + DB_NAME);
-        System.out.println("Database verified/created successfully!");
-      } catch (SQLException e) {
-        System.err.println("Error creating database: " + e.getMessage());
-      }
-      conn.closeConnection();
-    } else {
-      System.out.println("Connection test failed!");
-    }
-  }
+  // if (conn.isConnected()) {
+  // System.out.println("Connection test successful!");
+  // // Try to create the database if it doesn't exist
+  // try {
+  // Statement stmt = conn.getConnection().createStatement();
+  // stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + DB_NAME);
+  // System.out.println("Database verified/created successfully!");
+  // } catch (SQLException e) {
+  // System.err.println("Error creating database: " + e.getMessage());
+  // }
+  // conn.closeConnection();
+  // } else {
+  // System.out.println("Connection test failed!");
+  // }
+  // }
 }

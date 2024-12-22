@@ -5,8 +5,8 @@ import Refuge.Swinger.Bar;
 import Refuge.Swinger.Icon;
 import Refuge.Swinger.Label;
 import Refuge.Swinger.Palette;
-import Refuge.View.Login;
-import Refuge.View.Welcome;
+import Refuge.View.Page.PageLogin;
+import Refuge.View.Page.PageWelcome;
 
 public class BarBase extends Bar {
   // private Label labelNomCompte = null;
@@ -35,7 +35,7 @@ public class BarBase extends Bar {
 
     icon.addClick(() -> {
       App.getWindow().clear();
-      Welcome.open(App.getWindow());
+      PageWelcome.open(App.getWindow());
     });
     icon.setHoverColor(Palette.YELLOW);
     add(icon);

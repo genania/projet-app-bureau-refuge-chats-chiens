@@ -42,6 +42,10 @@ public class Window extends JFrame implements Palette {
   }
 
   public void setBar(Bar bar) { // Setter pour la barre
+    if (this.bar != null) {
+      remove(this.bar);
+    }
+
     this.bar = bar;
   }
 

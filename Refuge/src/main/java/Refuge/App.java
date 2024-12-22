@@ -5,6 +5,7 @@ import Refuge.Control.Connexion;
 import Refuge.Control.Database;
 import Refuge.Swinger.*;
 import Refuge.View.*;
+import Refuge.View.Page.PageWelcome;
 import Refuge.Model.*;
 
 public class App {
@@ -20,11 +21,14 @@ public class App {
     // Database database = new Database();
     // Database.ajouterFilm("Inception", "Christopher Nolan", 2010);
 
+    Connexion connexion = new Connexion();
+    System.out.println(connexion.isConnected());
+
     Account.addAccount(new Visitor());
 
     size = window.getSize();
 
-    Welcome.open(window);
+    PageWelcome.open(window);
 
     window.showBar();
     window.open();

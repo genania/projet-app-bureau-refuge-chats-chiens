@@ -1,14 +1,13 @@
 package Refuge.View.Bar;
 
 import Refuge.App;
-import Refuge.View.CreateAccountModal;
+import Refuge.View.Modal.CreateAccountModal;
 
 public class BarWelcome extends BarBase {
   public BarWelcome() {
     super();
     ajouterBoutonAide();
     ajouterBoutonContact();
-    ajouterBoutonConnexion();
     ajouterBoutonCreerCompte();
   }
 
@@ -30,8 +29,4 @@ public class BarWelcome extends BarBase {
     });
   }
 
-  private void ajouterBoutonConnexion() {
-    ajouterBoutonDroit("Connexion", () -> {
-    });
-  }
 }

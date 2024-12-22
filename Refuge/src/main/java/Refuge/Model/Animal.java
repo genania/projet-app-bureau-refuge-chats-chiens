@@ -1,6 +1,7 @@
 package Refuge.Model;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import Refuge.Swinger.Palette;
 
@@ -11,11 +12,17 @@ public class Animal {
   }
 
   // Instance variables
-  private String name;
-  private Type type;
-  private int age;
-  private double weight;
-  private boolean isHungry;
+  private int identification;
+  private String nom;
+  private int ageMois;
+  private String espece;
+  private String sexe;
+  private String race;
+  private String couleur;
+  private String description;
+  private boolean sterilise;
+  private boolean vaccine;
+  private ArrayList<String> cheminPhotos;
   private final Color COLOR = Palette.ORANGE;
 
   public Color getColor() {
@@ -23,102 +30,124 @@ public class Animal {
   }
 
   // Constructor
-  public Animal(String name, Type type, int age, double weight) {
-    this.name = name;
-    this.type = type;
-    this.age = age;
-    this.weight = weight;
-    this.isHungry = true;
+  public Animal(int identification, String nom, int ageMois, String sexe,
+      String race, String couleur, String description, boolean sterilise, boolean vaccine,
+      ArrayList<String> cheminPhotos) {
+    this.identification = identification;
+    this.nom = nom;
+    this.ageMois = ageMois;
+    this.sexe = sexe;
+    this.race = race;
+    this.couleur = couleur;
+    this.description = description;
+    this.sterilise = sterilise;
+    this.vaccine = vaccine;
+    this.cheminPhotos = cheminPhotos;
   }
 
-  // Getters and setters
-  public String getName() {
-    return name;
+  // Getters et Setters
+  public int getIdentification() {
+    return identification;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setIdentification(int identification) {
+    this.identification = identification;
   }
 
-  public Type getType() {
-    return type;
+  public String getNom() {
+    return nom;
   }
 
-  public int getAge() {
-    return age;
+  public void setNom(String nom) {
+    this.nom = nom;
   }
 
-  public void setAge(int age) {
-    if (age >= 0) {
-      this.age = age;
-    }
+  public int getAgeMois() {
+    return ageMois;
   }
 
-  public double getWeight() {
-    return weight;
+  public void setAgeMois(int ageMois) {
+    this.ageMois = ageMois;
   }
 
-  public void setWeight(double weight) {
-    if (weight > 0) {
-      this.weight = weight;
-    }
+  public String getSexe() {
+    return sexe;
   }
 
-  // Behavior methods
-  public void eat() {
-    if (isHungry) {
-      System.out.println(name + " is eating " +
-          (type == Type.CAT ? "fish" : "dog food") + "...");
-      isHungry = false;
-    } else {
-      System.out.println(name + " is not hungry right now.");
-    }
+  public void setSexe(String sexe) {
+    this.sexe = sexe;
   }
 
-  public void makeSound() {
-    switch (type) {
-      case CAT:
-        System.out.println(name + " says: Meow!");
-        break;
-      case DOG:
-        System.out.println(name + " says: Woof!");
-        break;
-    }
+  public String getRace() {
+    return race;
   }
 
-  public void play() {
-    switch (type) {
-      case CAT:
-        System.out.println(name + " is chasing a laser pointer!");
-        break;
-      case DOG:
-        System.out.println(name + " is fetching a ball!");
-        break;
-    }
-    isHungry = true; // Playing makes them hungry
+  public void setRace(String race) {
+    this.race = race;
   }
 
-  public void sleep() {
-    switch (type) {
-      case CAT:
-        System.out.println(name + " is curled up in a sunny spot, sleeping...");
-        break;
-      case DOG:
-        System.out.println(name + " is sleeping in their bed...");
-        break;
-    }
-    isHungry = true; // Animals get hungry after sleeping
+  public String getEspece() {
+    return espece;
   }
 
-  // Override toString method for better object representation
+  public void setEspece(String espece) {
+    this.espece = espece;
+  }
+
+  public String getCouleur() {
+    return couleur;
+  }
+
+  public void setCouleur(String couleur) {
+    this.couleur = couleur;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public boolean isSterilise() {
+    return sterilise;
+  }
+
+  public void setSterilise(boolean sterilise) {
+    this.sterilise = sterilise;
+  }
+
+  public boolean isVaccine() {
+    return vaccine;
+  }
+
+  public void setVaccine(boolean vaccine) {
+    this.vaccine = vaccine;
+  }
+
+  public ArrayList<String> getCheminPhotos() {
+    return cheminPhotos;
+  }
+
+  public void setCheminPhotos(ArrayList<String> cheminPhotos) {
+    this.cheminPhotos = cheminPhotos;
+  }
+
   @Override
   public String toString() {
-    return "Animal{" +
-        "name='" + name + '\'' +
-        ", type=" + type +
-        ", age=" + age +
-        ", weight=" + weight +
-        ", isHungry=" + isHungry +
+    return "Animal {" +
+        "identification=" + identification +
+        ", nom='" + nom + '\'' +
+        ", ageMois=" + ageMois +
+        ", espece='" + espece + '\'' +
+        ", sexe='" + sexe + '\'' +
+        ", race='" + race + '\'' +
+        ", couleur='" + couleur + '\'' +
+        ", description='" + description + '\'' +
+        ", sterilise=" + sterilise +
+        ", vaccine=" + vaccine +
         '}';
   }
+
 }
