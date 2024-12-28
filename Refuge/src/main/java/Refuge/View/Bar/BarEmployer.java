@@ -24,27 +24,4 @@ public class BarEmployer extends BarBase {
 
     }
 
-    private void ajouterBoutonChat() {
-        ajouterBoutonDroit("Chat", () -> {
-            System.out.println("Page Chat ouverte");
-        });
-    }
-
-    private void ajouterBoutonChien() {
-        ajouterBoutonDroit("Chien", () -> {
-            System.out.println("Page Chien ouverte");
-        });
-    }
-
-    private void ajouterBoutonRecherche() {
-        ajouterBoutonDroit("Recherche", () -> {
-            System.out.println("Page Recherche ouverte");
-        });
-    }
-
-    private void ajouterBoutonAjouterAnimal() {
-        ajouterBoutonDroit("Ajouter un Animal", () -> {
-            System.out.println("Page Ajouter un Animal ouverte");
-        });
-    }
 }

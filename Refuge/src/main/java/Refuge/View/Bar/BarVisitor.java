@@ -1,6 +1,10 @@
 package Refuge.View.Bar;
 
+import Refuge.App;
 import Refuge.Swinger.*;
+import Refuge.View.Modal.AccountModal;
+import Refuge.View.Modal.ContactModal;
+
 import java.awt.Color;
 
 public class BarVisitor extends BarBase {
@@ -11,33 +15,14 @@ public class BarVisitor extends BarBase {
         // Configuration générale de la barre
         setBackground(Palette.DARK0_SOFT);
         setLayout(null);
+        // Ajouter Bouton Specifique à gauche
+        ajouterBoutonAide();
+        ajouterBoutonContact();
 
         // Ajouter les boutons spécifiques à droite
-        ajouterBoutonsDroite();
-    }
-
-    private void ajouterBoutonsDroite() {
         ajouterBoutonChien();
         ajouterBoutonChat();
         ajouterBoutonRecherche();
-    }
-
-    private void ajouterBoutonChat() {
-        ajouterBoutonDroit("Chat", () -> {
-            System.out.println("Page Chat ouverte");
-        });
-    }
-
-    private void ajouterBoutonChien() {
-        ajouterBoutonDroit("Chien", () -> {
-            System.out.println("Page Chien ouverte");
-        });
-    }
-
-    private void ajouterBoutonRecherche() {
-        ajouterBoutonDroit("Recherche", () -> {
-            System.out.println("Page Recherche ouverte");
-        });
     }
 
 }

@@ -40,4 +40,5 @@ public interface Palette {
   public static final Color BRIGHT_AQUA = new Color(0x8E, 0xC0, 0x7C);
   public static final Color BRIGHT_ORANGE = new Color(0xFE, 0x80, 0x19);
   public static final Color BRIGHT_GRAY = new Color(0xA8, 0x99, 0x84);
+  public static final Color PURPLE_HIGHLIGHT = null;
 }

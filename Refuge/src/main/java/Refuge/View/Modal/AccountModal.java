@@ -5,7 +5,7 @@ import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class CreateAccountModal extends JDialog {
+public class AccountModal extends JDialog {
     private JTextField nameField, firstNameField, emailField, phoneField, departmentField, categoryField, dobField;
     private JPasswordField passwordField, confirmPasswordField;
     private JComboBox<String> genderComboBox;
@@ -14,7 +14,7 @@ public class CreateAccountModal extends JDialog {
     private JRadioButton employeButton, adminButton; // Boutons radio
     private ButtonGroup roleGroup; // Groupe pour les boutons radio
 
-    public CreateAccountModal(Frame parent) {
+    public AccountModal(Frame parent) {
         super(parent, "Créer un compte", true); // Modale bloquante
 
         // Définir une icône personnalisée pour le modal

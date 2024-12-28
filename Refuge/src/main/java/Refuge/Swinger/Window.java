@@ -5,9 +5,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame implements Palette {
-
   private Color background = DARK0_HARD;
-  private Bar bar; // Variable membre pour la barre
+  private Bar bar;
 
   public Window() {
     SwingUtilities.invokeLater(() -> {
@@ -15,15 +14,29 @@ public class Window extends JFrame implements Palette {
       setExtendedState(JFrame.MAXIMIZED_BOTH);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setResizable(false);
+      setBackground(background);
       getContentPane().setBackground(background);
       setLayout(null);
-      // Définir une icône personnalisée pour la fenêtre
+
       ImageIcon icon = new ImageIcon(getClass().getResource("/icones/placeholder.png"));
       setIconImage(icon.getImage());
     });
 
     addKeybinding(KeyEvent.VK_ESCAPE, 0, this::dispose);
     addKeybinding(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK, () -> dispose());
+  }
+
+  public void putScrollable(JScrollPane scrollPane) {
+    clear();
+    // Ajuster la position et la taille du scrollPane pour tenir compte de la barre
+    int barHeight = (bar != null) ? bar.getHeight() : 0;
+    scrollPane.setBounds(0, barHeight,
+        getSize().width,
+        getSize().height - barHeight);
+    getContentPane().add(scrollPane);
+    showBar();
+    revalidate();
+    repaint();
   }
 
   public void put(Component component) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import Refuge.App;
-import Refuge.View.Modal.CreateAccountModal;
+import Refuge.View.Modal.AccountModal;
 import Refuge.View.Page.PageLogin;
 import Refuge.View.Page.PageWelcome;
 

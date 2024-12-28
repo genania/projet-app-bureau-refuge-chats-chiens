@@ -95,4 +95,9 @@ public class Frame {
   public String toString() {
     return "Frame [x=" + x + ", y=" + y + ", width=" + width + ", height=" + height + "]";
   }
+
+  public Rectangle toPoints() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'toPoints'");
+  }
 }

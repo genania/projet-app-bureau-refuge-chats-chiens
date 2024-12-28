@@ -2,9 +2,7 @@ package Refuge;
 
 import java.awt.Dimension;
 import Refuge.Control.Connexion;
-import Refuge.Control.Database;
 import Refuge.Swinger.*;
-import Refuge.View.*;
 import Refuge.View.Page.PageWelcome;
 import Refuge.Model.*;
 

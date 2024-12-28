@@ -5,6 +5,9 @@ import Refuge.Swinger.Bar;
 import Refuge.Swinger.Icon;
 import Refuge.Swinger.Label;
 import Refuge.Swinger.Palette;
+import Refuge.View.Modal.AccountModal;
+import Refuge.View.Modal.ContactModal;
+import Refuge.View.Modal.HelpModal;
 import Refuge.View.Page.PageLogin;
 import Refuge.View.Page.PageWelcome;
 
@@ -25,6 +28,55 @@ public class BarBase extends Bar {
   // labelNomCompte = name;
   // add(name);
   // }
+
+  protected void ajouterBoutonContact() {
+    this.ajouterBoutonGauche("Contact", () -> {
+      new ContactModal(App.getWindow()).setVisible(true);
+      // TODO Afficher Contact
+    });
+  }
+
+  protected void ajouterBoutonAide() {
+    this.ajouterBoutonGauche("Aide", () -> {
+      new HelpModal(App.getWindow()).setVisible(true);
+    });
+  }
+
+  protected void ajouterBoutonChat() {
+    ajouterBoutonDroit("Chat", () -> {
+      System.out.println("Page Chat ouverte");
+    });
+  }
+
+  protected void ajouterBoutonChien() {
+    ajouterBoutonDroit("Chien", () -> {
+      System.out.println("Page Chien ouverte");
+    });
+  }
+
+  protected void ajouterBoutonRecherche() {
+    ajouterBoutonDroit("Recherche", () -> {
+      System.out.println("Page Recherche ouverte");
+    });
+  }
+
+  protected void ajouterBoutonCreerCompte() {
+    ajouterBoutonDroit("Créer un compte", () -> {
+      new AccountModal(App.getWindow()).setVisible(true); // TODO Afficher model Créer un compte
+    });
+  }
+
+  protected void ajouterBoutonEmployer() {
+    ajouterBoutonDroit("Employer", () -> {
+      System.out.println("Page Employer ouverte");
+    });
+  }
+
+  protected void ajouterBoutonAjouterAnimal() {
+    ajouterBoutonDroit("Ajouter un Animal", () -> {
+      System.out.println("Page Ajouter un Animal ouverte");
+    });
+  }
 
   private void addLogo() {
     Icon icon = new Icon("/icones/placeholder.png", 0.01, this.getFrame().getHeight() / 4.0,

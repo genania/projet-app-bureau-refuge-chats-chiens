@@ -31,6 +31,8 @@ public class Text {
   public static final Font BOLD = MAIN.deriveFont(Font.BOLD).deriveFont(MEDIUM);
   public static final Font ITALIC = MAIN.deriveFont(Font.ITALIC).deriveFont(MEDIUM);
 
+  public static final Font TITLE = null;
+
   // Private constructor to prevent instantiation
   private Text() {
   }
