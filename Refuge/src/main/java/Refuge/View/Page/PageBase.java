@@ -51,8 +51,8 @@ public abstract class PageBase {
     }
   }
 
-  public static void showAnimal(Window window) {
-    loadAnimals();
+  public static void showAnimal(Window window, Runnable loadMethod) {
+    loadMethod.run();
 
     JPanel containerPanel = new JPanel(null) {
       @Override
@@ -92,5 +92,13 @@ public abstract class PageBase {
 
   public static void loadAnimals() {
     animals = RequeteSql.obtenirListeAnimaux();
+  }
+
+  public static void loadCat() {
+    animals = RequeteSql.obtenirListeChats();
+  }
+
+  public static void loadDog() {
+    animals = RequeteSql.obtenirListeChiens();
   }
 }

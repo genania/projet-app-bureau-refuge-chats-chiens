@@ -8,7 +8,7 @@ public class PageAdmin extends PageBase {
     public static void open(Window window) {
         window.setBar(new BarAdmin());
         window.showBar(); // Afficher la barre
-        showAnimal(window);
+        showAnimal(window, () -> loadAnimals());
         window.revalidate();
         window.repaint();
     }

@@ -8,6 +8,8 @@ import Refuge.Swinger.Palette;
 import Refuge.View.Modal.AccountModal;
 import Refuge.View.Modal.ContactModal;
 import Refuge.View.Modal.HelpModal;
+import Refuge.View.Page.PageCat;
+import Refuge.View.Page.PageDog;
 import Refuge.View.Page.PageLogin;
 import Refuge.View.Page.PageWelcome;
 
@@ -45,12 +47,14 @@ public class BarBase extends Bar {
   protected void ajouterBoutonChat() {
     ajouterBoutonDroit("Chat", () -> {
       System.out.println("Page Chat ouverte");
+      PageCat.open(App.getWindow()); // Utiliser App.getWindow() à la place de window
     });
   }
 
   protected void ajouterBoutonChien() {
     ajouterBoutonDroit("Chien", () -> {
       System.out.println("Page Chien ouverte");
+      PageDog.open(App.getWindow()); // Utiliser App.getWindow() à la place de window
     });
   }
 

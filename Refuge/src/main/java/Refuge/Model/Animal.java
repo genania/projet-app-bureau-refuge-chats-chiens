@@ -23,7 +23,7 @@ public class Animal {
   private boolean sterilise;
   private boolean vaccine;
   private ArrayList<String> cheminPhotos;
-  private final Color COLOR = Palette.ORANGE;
+  private final Color COLOR = Palette.BLUE;
 
   public Color getColor() {
     return COLOR;

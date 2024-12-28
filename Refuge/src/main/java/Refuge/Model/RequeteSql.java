@@ -87,4 +87,64 @@ public final class RequeteSql {
             return listeAnimaux;
         });
     }
+
+    public static ArrayList<Animal> obtenirListeChats() {
+        String query = "SELECT * FROM animaux WHERE espece = 'chat'";
+
+        return executerRequete(query, resultSet -> {
+            ArrayList<Animal> listeChats = new ArrayList<>();
+            try {
+                while (resultSet.next()) {
+                    int identification = resultSet.getInt("identification");
+                    String nom = resultSet.getString("nom");
+                    int ageMois = resultSet.getInt("age_mois");
+                    String espece = resultSet.getString("espece");
+                    String sexe = resultSet.getString("sexe");
+                    String race = resultSet.getString("race");
+                    String couleur = resultSet.getString("couleur");
+                    String description = resultSet.getString("description");
+                    boolean sterilise = resultSet.getInt("sterilise") == 1;
+                    boolean vaccine = resultSet.getInt("vaccine") == 1;
+                    ArrayList<String> listePhotos = obtenirListePhotos(identification);
+
+                    // Ajout uniquement si l'espèce est "chat"
+                    listeChats.add(new Animal(identification, nom, ageMois, sexe, race, couleur, description, sterilise,
+                            vaccine, listePhotos));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return listeChats;
+        });
+    }
+
+    public static ArrayList<Animal> obtenirListeChiens() {
+        String query = "SELECT * FROM animaux WHERE espece = 'chien'";
+        return executerRequete(query, resultSet -> {
+            ArrayList<Animal> listeChiens = new ArrayList<>();
+            try {
+                while (resultSet.next()) {
+                    int identification = resultSet.getInt("identification");
+                    String nom = resultSet.getString("nom");
+                    int ageMois = resultSet.getInt("age_mois");
+                    String espece = resultSet.getString("espece");
+                    String sexe = resultSet.getString("sexe");
+                    String race = resultSet.getString("race");
+                    String couleur = resultSet.getString("couleur");
+                    String description = resultSet.getString("description");
+                    boolean sterilise = resultSet.getInt("sterilise") == 1;
+                    boolean vaccine = resultSet.getInt("vaccine") == 1;
+                    ArrayList<String> listePhotos = obtenirListePhotos(identification);
+
+                    Animal chien = new Animal(identification, nom, ageMois, sexe, race, couleur, description,
+                            sterilise, vaccine, listePhotos);
+                    listeChiens.add(chien);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return listeChiens;
+        });
+    }
+
 }
