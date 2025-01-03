@@ -125,7 +125,7 @@ public class PageAnimalDetails {
         addInfoLabel(infoPanel, "<html><b>Vacciné:</b> " + (animal.isVaccine() ? "Oui" : "Non") + "</html>", 0.40);
         // Remplacez la section de description par ceci :
         addInfoLabel(infoPanel,
-                "<html><div style='width: 60%; white-space: normal; line-height: 1.4;'><b>Description:</b> "
+                "<html><div style='width: 45%; text-align: justify; text-justify: inter-word; white-space: normal; line-height: 1.4;'><b>Description:</b> "
                         + animal.getDescription() + "</div></html>",
                 0.45, 0.5);
 
