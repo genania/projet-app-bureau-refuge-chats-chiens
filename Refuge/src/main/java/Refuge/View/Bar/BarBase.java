@@ -6,8 +6,10 @@ import Refuge.Swinger.Icon;
 import Refuge.Swinger.Label;
 import Refuge.Swinger.Palette;
 import Refuge.View.Modal.AccountModal;
+import Refuge.View.Modal.AddAnimalModal;
 import Refuge.View.Modal.ContactModal;
 import Refuge.View.Modal.HelpModal;
+import Refuge.View.Modal.SearchModal;
 import Refuge.View.Page.PageCat;
 import Refuge.View.Page.PageDog;
 import Refuge.View.Page.PageLogin;
@@ -61,6 +63,8 @@ public class BarBase extends Bar {
   protected void ajouterBoutonRecherche() {
     ajouterBoutonDroit("Recherche", () -> {
       System.out.println("Page Recherche ouverte");
+      new SearchModal(App.getWindow()).setVisible(true);
+
     });
   }
 
@@ -79,6 +83,7 @@ public class BarBase extends Bar {
   protected void ajouterBoutonAjouterAnimal() {
     ajouterBoutonDroit("Ajouter un Animal", () -> {
       System.out.println("Page Ajouter un Animal ouverte");
+      new AddAnimalModal(App.getWindow()).setVisible(true);
     });
   }
 

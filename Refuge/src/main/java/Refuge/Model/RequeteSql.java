@@ -108,7 +108,8 @@ public final class RequeteSql {
                     ArrayList<String> listePhotos = obtenirListePhotos(identification);
 
                     // Ajout uniquement si l'espèce est "chat"
-                    listeChats.add(new Animal(identification, nom, ageMois, sexe, race, couleur, description, sterilise,
+                    listeChats.add(new Animal(identification, nom, ageMois, espece, sexe, race, couleur, description,
+                            sterilise,
                             vaccine, listePhotos));
                 }
             } catch (SQLException e) {
@@ -136,7 +137,7 @@ public final class RequeteSql {
                     boolean vaccine = resultSet.getInt("vaccine") == 1;
                     ArrayList<String> listePhotos = obtenirListePhotos(identification);
 
-                    Animal chien = new Animal(identification, nom, ageMois, sexe, race, couleur, description,
+                    Animal chien = new Animal(identification, nom, ageMois, espece, sexe, race, couleur, description,
                             sterilise, vaccine, listePhotos);
                     listeChiens.add(chien);
                 }

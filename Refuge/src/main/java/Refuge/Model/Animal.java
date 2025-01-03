@@ -45,6 +45,22 @@ public class Animal {
     this.cheminPhotos = cheminPhotos;
   }
 
+  public Animal(int identification, String nom, int ageMois, String espece, String sexe,
+      String race, String couleur, String description, boolean sterilise, boolean vaccine,
+      ArrayList<String> cheminPhotos) {
+    this.identification = identification;
+    this.nom = nom;
+    this.ageMois = ageMois;
+    this.espece = espece;
+    this.sexe = sexe;
+    this.race = race;
+    this.couleur = couleur;
+    this.description = description;
+    this.sterilise = sterilise;
+    this.vaccine = vaccine;
+    this.cheminPhotos = cheminPhotos;
+  }
+
   // Getters et Setters
   public int getIdentification() {
     return identification;

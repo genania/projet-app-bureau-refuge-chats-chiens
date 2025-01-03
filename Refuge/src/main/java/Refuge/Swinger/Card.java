@@ -11,78 +11,98 @@ import Refuge.View.Page.PageAnimalDetails;
 public class Card extends JPanel {
   private Frame frame;
   public static final Size size = new Size(0.15, 0.15);
-
   private Animal animal;
 
   public Card(Animal animal, double x, double y) {
     this.frame = new Frame(x, y, size.getwidth(), size.getheight());
     this.animal = animal;
 
-    customize();
+    setLayout(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
 
-    add(new Label("Nom : " + animal.getNom(), 0.004, 0.0, 0.5, 0.1));
-    add(new Label("Type : " + animal.getEspece(), 0.004, 0.025, 0.5, 0.1));
-    add(new Label("Age : " + animal.getAgeMois() + " mois", 0.004, 0.05, 0.5, 0.1));
-    add(new Label("Race : " + animal.getRace(), 0.004, 0.075, 0.5, 0.1));
+    // Panel pour les informations textuelles
+    JPanel infoPanel = new JPanel(new GridLayout(6, 1, 5, 5));
+    infoPanel.setOpaque(false);
 
-    // Ajouter une logique pour afficher "Mâle" ou "Femelle"
+    // Ajouter les informations
+    infoPanel.add(new JLabel("Nom : " + animal.getNom()));
+    infoPanel.add(new JLabel("Type : " + animal.getEspece()));
+    infoPanel.add(new JLabel("Age : " + animal.getAgeMois() + " mois"));
+    infoPanel.add(new JLabel("Race : " + animal.getRace()));
     String sexe = animal.getSexe().equals("M") ? "Mâle" : "Femelle";
-    add(new Label("Sexe : " + sexe, 0.004, 0.1, 0.5, 0.1));
+    infoPanel.add(new JLabel("Sexe : " + sexe));
     String sterile = animal.isSterilise() ? "Oui" : "Non";
-    add(new Label("Stérilisé : " + sterile, 0.004, 0.125, 0.5, 0.1));
+    infoPanel.add(new JLabel("Stérilisé : " + sterile));
 
-    // Ajout de la photo de l'animal avec des dimensions ajustées et position collée
-    // à droite
-    JLabel imageLabel = createImageLabel(animal.getCheminPhotos().get(0), 300, 300); // Augmenter les dimensions
+    // Configurer les contraintes pour le panel d'information
+    gbc.gridx = 0;
+    gbc.gridy = 0;
+    gbc.weightx = 0.4; // Réduit pour donner plus d'espace à l'image
+    gbc.weighty = 1.0;
+    gbc.anchor = GridBagConstraints.WEST;
+    gbc.fill = GridBagConstraints.BOTH;
+    gbc.insets = new Insets(10, 10, 10, 10);
+    add(infoPanel, gbc);
+
+    // Créer et ajouter l'image avec des dimensions plus grandes
+    JLabel imageLabel = createImageLabel(animal.getCheminPhotos().get(0), 300, 300); // Dimensions augmentées
     if (imageLabel != null) {
-      int cardHeight = this.getHeight(); // Hauteur de la carte
-      int imageHeight = 300; // Hauteur de l'image
-      int yCenter = (cardHeight - imageHeight) / 2; // Calcul pour centrer verticalement
+      // Panel conteneur pour l'image avec une taille fixe plus grande
+      JPanel imageContainer = new JPanel(new GridBagLayout());
+      imageContainer.setPreferredSize(new Dimension(320, 320)); // Dimensions augmentées
+      imageContainer.setMinimumSize(new Dimension(300, 300)); // Taille minimum garantie
+      imageContainer.setOpaque(false);
+      imageContainer.add(imageLabel);
 
-      imageLabel.setBounds(this.getWidth() - 320, yCenter, 300, 300); // Ajuster uniquement la position verticale
-      add(imageLabel);
+      // Configurer les contraintes pour l'image
+      gbc.gridx = 1;
+      gbc.weightx = 0.6; // Augmenté pour donner plus d'espace à l'image
+      gbc.anchor = GridBagConstraints.CENTER; // Centré plutôt qu'à droite
+      gbc.fill = GridBagConstraints.BOTH;
+      add(imageContainer, gbc);
     }
 
-    // Add hover effect
+    customize();
+    setupMouseListeners();
+  }
+
+  private void customize() {
+    setBounds(frame.toRectangle());
+    setBackground(Palette.PURPLE);
+    setForeground(Palette.LIGHT0_SOFT);
+    setFont(Text.MEDIUM_TEXT);
+    setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+    // Définir une taille minimum pour la carte entière
+    setMinimumSize(new Dimension(500, 200));
+  }
+
+  private void setupMouseListeners() {
     addMouseListener(new MouseAdapter() {
       @Override
       public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 1) {
-          // Récupérer la fenêtre parente
-          Window window = (Window) SwingUtilities.getWindowAncestor(Card.this);
-          // Ouvrir la page de détails
+          Window window = (Refuge.Swinger.Window) SwingUtilities.getWindowAncestor(Card.this);
           PageAnimalDetails.open(window, animal);
         }
       }
 
       @Override
       public void mouseEntered(MouseEvent e) {
-        // Vérifier que l'animal a une couleur valide avant d'appliquer le changement
-        Color hoverColor = Palette.BRIGHT_ORANGE; // Exemple de couleur claire
-        setBackground(hoverColor);
+        setBackground(Palette.BRIGHT_ORANGE);
         repaint();
       }
 
       @Override
       public void mouseExited(MouseEvent e) {
-        // Revenir à la couleur de fond d'origine
         setBackground(animal.getColor());
         repaint();
       }
     });
   }
 
-  public void customize() {
-    setLayout(null);
-    setBounds(frame.toRectangle());
-    setBackground(Palette.PURPLE);
-    setForeground(Palette.LIGHT0_SOFT);
-    setFont(Text.MEDIUM_TEXT);
-  }
-
   private JLabel createImageLabel(String imagePath, int targetWidth, int targetHeight) {
     try {
-      // Charger l'image
       java.net.URL imageUrl = getClass().getClassLoader().getResource(imagePath);
       if (imageUrl == null) {
         System.err.println("Image introuvable dans le classpath : " + imagePath);
@@ -92,24 +112,23 @@ public class Card extends JPanel {
       ImageIcon imageIcon = new ImageIcon(imageUrl);
       Image originalImage = imageIcon.getImage();
 
-      // Calcul des nouvelles dimensions tout en respectant les proportions
+      // Calculer les dimensions en préservant les proportions
       int originalWidth = originalImage.getWidth(null);
       int originalHeight = originalImage.getHeight(null);
-      double widthRatio = (double) targetWidth / originalWidth;
-      double heightRatio = (double) targetHeight / originalHeight;
-      double scaleRatio = Math.min(widthRatio, heightRatio); // Respect des proportions
+      double ratio = Math.min(
+          (double) targetWidth / originalWidth,
+          (double) targetHeight / originalHeight);
 
-      int newWidth = (int) (originalWidth * scaleRatio);
-      int newHeight = (int) (originalHeight * scaleRatio);
+      int newWidth = (int) (originalWidth * ratio);
+      int newHeight = (int) (originalHeight * ratio);
 
-      // Redimensionner l'image
-      Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+      Image scaledImage = originalImage.getScaledInstance(
+          newWidth, newHeight, Image.SCALE_SMOOTH);
 
-      // Créer et retourner le JLabel avec l'image redimensionnée
       JLabel label = new JLabel(new ImageIcon(scaledImage));
-      label.setHorizontalAlignment(SwingConstants.CENTER); // Centrer horizontalement
-      label.setVerticalAlignment(SwingConstants.CENTER); // Centrer verticalement
-      label.setPreferredSize(new Dimension(newWidth, newHeight)); // Fixer la taille préférée
+      label.setHorizontalAlignment(SwingConstants.CENTER);
+      label.setVerticalAlignment(SwingConstants.CENTER);
+
       return label;
     } catch (Exception e) {
       System.err.println("Erreur de chargement de l'image : " + imagePath);
@@ -117,5 +136,4 @@ public class Card extends JPanel {
       return null;
     }
   }
-
 }
