@@ -31,6 +31,7 @@ public class Card extends JPanel {
     addRaceInfoLabel(infoPanel, "Race :", animal.getRace());
     addInfoLabel(infoPanel, "Age : " + animal.getAgeMois() + " mois");
     addInfoLabel(infoPanel, "Sexe : " + (animal.getSexe().equals("M") ? "Mâle" : "Femelle"));
+    addRaceInfoLabel(infoPanel, "Couleur : ", animal.getCouleur());
     addInfoLabel(infoPanel, "Stérilisé : " + (animal.isSterilise() ? "Oui" : "Non"));
     addInfoLabel(infoPanel, "Vacciné : " + (animal.isVaccine() ? "Oui" : "Non"));
 
