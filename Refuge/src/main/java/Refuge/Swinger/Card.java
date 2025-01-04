@@ -10,7 +10,7 @@ import Refuge.View.Page.PageAnimalDetails;
 
 public class Card extends JPanel {
   private Frame frame;
-  public static final Size size = new Size(0.2, 0.2); // Augmenté pour des cartes plus larges
+  public static final Size size = new Size(0.2, 0.2);
   private Animal animal;
 
   public Card(Animal animal, double x, double y) {
@@ -21,23 +21,23 @@ public class Card extends JPanel {
     GridBagConstraints gbc = new GridBagConstraints();
 
     // Panel pour les informations textuelles
-    JPanel infoPanel = new JPanel(new GridLayout(6, 1, 5, 5));
+    JPanel infoPanel = new JPanel();
+    infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
     infoPanel.setOpaque(false);
 
-    // Ajouter les informations
-    infoPanel.add(new JLabel("Nom : " + animal.getNom()));
-    infoPanel.add(new JLabel("Type : " + animal.getEspece()));
-    infoPanel.add(new JLabel("Age : " + animal.getAgeMois() + " mois"));
-    infoPanel.add(new JLabel("Race : " + animal.getRace()));
-    String sexe = animal.getSexe().equals("M") ? "Mâle" : "Femelle";
-    infoPanel.add(new JLabel("Sexe : " + sexe));
-    String sterile = animal.isSterilise() ? "Oui" : "Non";
-    infoPanel.add(new JLabel("Stérilisé : " + sterile));
+    // Ajouter les informations avec un espacement et un style de police en gras
+    addInfoLabel(infoPanel, "Nom : " + animal.getNom());
+    addInfoLabel(infoPanel, "Type : " + animal.getEspece());
+    addRaceInfoLabel(infoPanel, "Race :", animal.getRace());
+    addInfoLabel(infoPanel, "Age : " + animal.getAgeMois() + " mois");
+    addInfoLabel(infoPanel, "Sexe : " + (animal.getSexe().equals("M") ? "Mâle" : "Femelle"));
+    addInfoLabel(infoPanel, "Stérilisé : " + (animal.isSterilise() ? "Oui" : "Non"));
+    addInfoLabel(infoPanel, "Vacciné : " + (animal.isVaccine() ? "Oui" : "Non"));
 
     // Configurer les contraintes pour le panel d'information
     gbc.gridx = 0;
     gbc.gridy = 0;
-    gbc.weightx = 0.5; // Augmenté pour donner plus d'espace au texte
+    gbc.weightx = 0.5;
     gbc.weighty = 1.0;
     gbc.anchor = GridBagConstraints.WEST;
     gbc.fill = GridBagConstraints.BOTH;
@@ -45,18 +45,17 @@ public class Card extends JPanel {
     add(infoPanel, gbc);
 
     // Créer et ajouter l'image avec des dimensions plus grandes
-    JLabel imageLabel = createImageLabel(animal.getCheminPhotos().get(0), 400, 400); // Dimensions augmentées
+    JLabel imageLabel = createImageLabel(animal.getCheminPhotos().get(0), 400, 400);
     if (imageLabel != null) {
-      // Panel conteneur pour l'image avec une taille fixe plus grande
       JPanel imageContainer = new JPanel(new GridBagLayout());
-      imageContainer.setPreferredSize(new Dimension(420, 420)); // Dimensions augmentées
-      imageContainer.setMinimumSize(new Dimension(400, 400)); // Taille minimum garantie
+      imageContainer.setPreferredSize(new Dimension(420, 420));
+      imageContainer.setMinimumSize(new Dimension(400, 400));
       imageContainer.setOpaque(false);
       imageContainer.add(imageLabel);
 
       // Configurer les contraintes pour l'image
       gbc.gridx = 1;
-      gbc.weightx = 0.5; // Ajusté pour équilibrer avec le texte
+      gbc.weightx = 0.5;
       gbc.anchor = GridBagConstraints.CENTER;
       gbc.fill = GridBagConstraints.BOTH;
       add(imageContainer, gbc);
@@ -64,6 +63,22 @@ public class Card extends JPanel {
 
     customize();
     setupMouseListeners();
+  }
+
+  private void addInfoLabel(JPanel panel, String text) {
+    JLabel label = new JLabel(text);
+    label.setAlignmentX(Component.LEFT_ALIGNMENT);
+    label.setFont(new Font("Arial", Font.BOLD, 16)); // Police en gras et taille 16
+    panel.add(label);
+    panel.add(Box.createRigidArea(new Dimension(0, 24))); // Ajout d'un espacement vertical de 8 pixels
+  }
+
+  private void addRaceInfoLabel(JPanel panel, String label, String value) {
+    JLabel raceLabel = new JLabel("<html><b>" + label + "</b><br>" + value + "</html>");
+    raceLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+    raceLabel.setFont(new Font("Arial", Font.BOLD, 16));
+    panel.add(raceLabel);
+    panel.add(Box.createRigidArea(new Dimension(0, 24)));
   }
 
   private void customize() {
@@ -76,7 +91,7 @@ public class Card extends JPanel {
     // Limiter la largeur des cartes
     setMinimumSize(new Dimension(400, 250));
     setPreferredSize(new Dimension(500, 300));
-    setMaximumSize(new Dimension(600, 350)); // Largeur maximale fixée
+    setMaximumSize(new Dimension(600, 350));
   }
 
   private void setupMouseListeners() {
