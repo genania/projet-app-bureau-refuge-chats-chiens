@@ -2,6 +2,11 @@ package Refuge.View.Page;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -12,9 +17,6 @@ import Refuge.Model.RequeteSql;
 import Refuge.Swinger.*;
 
 public abstract class PageBase {
-  private static final double PANEL_WIDTH = 0.1;
-  private static final double PANEL_HEIGHT = 0.1;
-  private static final double GAP = 0.1;
   private static List<Animal> animals = new ArrayList<>();
 
   public static void open(Window window) {
@@ -44,33 +46,24 @@ public abstract class PageBase {
 
     @Override
     protected void configureScrollBarColors() {
-      // Couleur de la "poignée" de la scrollbar
-      this.thumbColor = new Color(73, 156, 154);
-      // Couleur de la piste de la scrollbar
-      this.trackColor = new Color(44, 44, 44);
+      this.thumbColor = new Color(73, 156, 154); // Couleur de la poignée
+      this.trackColor = new Color(44, 44, 44); // Couleur de la piste
     }
   }
 
   public static void showAnimal(Window window, Runnable loadMethod) {
     loadMethod.run();
 
-    JPanel containerPanel = new JPanel(null) {
-      @Override
-      public Dimension getPreferredSize() {
-        int rows = (int) Math.ceil(animals.size() / 3.0);
-        int height = (int) (window.getSize().height * (0.1 + rows * (PANEL_HEIGHT + GAP)));
-        return new Dimension(window.getSize().width, height);
-      }
-    };
+    // Calculer le nombre de colonnes en fonction de la taille de la fenêtre
+    int numColumns = Math.max(3, window.getSize().width / 600);
 
+    JPanel containerPanel = new JPanel(new GridLayout(0, numColumns, 20, 20));
     containerPanel.setBackground(window.getBackground());
 
-    for (int i = 0; i < animals.size(); i++) {
-      double x = 0.2 + (i % 3) * (PANEL_WIDTH + GAP);
-      double y = 0.1 + (i / 3) * (PANEL_HEIGHT + GAP);
-
-      Card card = new Card(animals.get(i), x, y);
-      card.setBackground(animals.get(i).getColor());
+    for (Animal animal : animals) {
+      Card card = new Card(animal, 0, 0);
+      card.setBackground(animal.getColor());
+      card.setMaximumSize(new Dimension(600, 350));
       containerPanel.add(card);
     }
 
@@ -81,10 +74,9 @@ public abstract class PageBase {
     // Personnalisation de la scrollbar
     scrollPane.setBackground(window.getBackground());
     scrollPane.getViewport().setBackground(window.getBackground());
-    scrollPane.setBorder(BorderFactory.createEmptyBorder()); // Enlève la bordure
+    scrollPane.setBorder(BorderFactory.createEmptyBorder());
     scrollPane.getVerticalScrollBar().setUI(new CustomScrollBarUI());
 
-    // Définir la largeur de la scrollbar
     scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(10, 0));
 
     window.putScrollable(scrollPane);

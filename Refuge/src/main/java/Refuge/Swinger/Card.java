@@ -10,7 +10,7 @@ import Refuge.View.Page.PageAnimalDetails;
 
 public class Card extends JPanel {
   private Frame frame;
-  public static final Size size = new Size(0.15, 0.15);
+  public static final Size size = new Size(0.2, 0.2); // Augmenté pour des cartes plus larges
   private Animal animal;
 
   public Card(Animal animal, double x, double y) {
@@ -37,7 +37,7 @@ public class Card extends JPanel {
     // Configurer les contraintes pour le panel d'information
     gbc.gridx = 0;
     gbc.gridy = 0;
-    gbc.weightx = 0.4; // Réduit pour donner plus d'espace à l'image
+    gbc.weightx = 0.5; // Augmenté pour donner plus d'espace au texte
     gbc.weighty = 1.0;
     gbc.anchor = GridBagConstraints.WEST;
     gbc.fill = GridBagConstraints.BOTH;
@@ -45,19 +45,19 @@ public class Card extends JPanel {
     add(infoPanel, gbc);
 
     // Créer et ajouter l'image avec des dimensions plus grandes
-    JLabel imageLabel = createImageLabel(animal.getCheminPhotos().get(0), 300, 300); // Dimensions augmentées
+    JLabel imageLabel = createImageLabel(animal.getCheminPhotos().get(0), 400, 400); // Dimensions augmentées
     if (imageLabel != null) {
       // Panel conteneur pour l'image avec une taille fixe plus grande
       JPanel imageContainer = new JPanel(new GridBagLayout());
-      imageContainer.setPreferredSize(new Dimension(320, 320)); // Dimensions augmentées
-      imageContainer.setMinimumSize(new Dimension(300, 300)); // Taille minimum garantie
+      imageContainer.setPreferredSize(new Dimension(420, 420)); // Dimensions augmentées
+      imageContainer.setMinimumSize(new Dimension(400, 400)); // Taille minimum garantie
       imageContainer.setOpaque(false);
       imageContainer.add(imageLabel);
 
       // Configurer les contraintes pour l'image
       gbc.gridx = 1;
-      gbc.weightx = 0.6; // Augmenté pour donner plus d'espace à l'image
-      gbc.anchor = GridBagConstraints.CENTER; // Centré plutôt qu'à droite
+      gbc.weightx = 0.5; // Ajusté pour équilibrer avec le texte
+      gbc.anchor = GridBagConstraints.CENTER;
       gbc.fill = GridBagConstraints.BOTH;
       add(imageContainer, gbc);
     }
@@ -73,8 +73,10 @@ public class Card extends JPanel {
     setFont(Text.MEDIUM_TEXT);
     setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-    // Définir une taille minimum pour la carte entière
-    setMinimumSize(new Dimension(500, 200));
+    // Limiter la largeur des cartes
+    setMinimumSize(new Dimension(400, 250));
+    setPreferredSize(new Dimension(500, 300));
+    setMaximumSize(new Dimension(600, 350)); // Largeur maximale fixée
   }
 
   private void setupMouseListeners() {
