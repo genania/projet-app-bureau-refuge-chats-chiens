@@ -71,7 +71,7 @@ public class Card extends JPanel {
     label.setAlignmentX(Component.LEFT_ALIGNMENT);
     label.setFont(new Font("Arial", Font.BOLD, 16)); // Police en gras et taille 16
     panel.add(label);
-    panel.add(Box.createRigidArea(new Dimension(0, 24))); // Ajout d'un espacement vertical de 8 pixels
+    panel.add(Box.createRigidArea(new Dimension(0, 8))); // Ajout d'un espacement vertical de 8 pixels
   }
 
   private void addRaceInfoLabel(JPanel panel, String label, String value) {
@@ -79,7 +79,7 @@ public class Card extends JPanel {
     raceLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
     raceLabel.setFont(new Font("Arial", Font.BOLD, 16));
     panel.add(raceLabel);
-    panel.add(Box.createRigidArea(new Dimension(0, 24)));
+    panel.add(Box.createRigidArea(new Dimension(0, 8)));
   }
 
   private void customize() {
