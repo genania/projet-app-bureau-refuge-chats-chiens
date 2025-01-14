@@ -85,7 +85,7 @@ public class Card extends JPanel {
   private void customize() {
     setBounds(frame.toRectangle());
     setBackground(Palette.PURPLE);
-    setForeground(Palette.LIGHT0_SOFT);
+    setForeground(Palette.LIGHT1);
     setFont(Text.MEDIUM_TEXT);
     setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 

@@ -22,10 +22,10 @@ public class Label extends JLabel {
   }
 
   public Label(String text, double x, double y, double width, double height) {
-    this.frame = new Frame(x, y, width, height);
+    frame = new Frame(x, y, width, height);
 
     setText(text);
-    setBounds(this.frame.toRectangle());
+    // setBounds(this.frame.toRectangle());
     customize();
   }
 
@@ -47,11 +47,11 @@ public class Label extends JLabel {
   public void customize() {
     setBounds(frame.toRectangle());
     setBorder(BorderFactory.createEmptyBorder());
-    setBackground(Palette.DARK0_SOFT);
+    // setBackground(Palette.DARK0_SOFT);
     setForeground(Palette.LIGHT0_SOFT);
-    setFont(Text.MEDIUM_TEXT); // Initialize object
+    setFont(Text.MEDIUM_TEXT);
     setHorizontalAlignment(alignment);
-    setVerticalAlignment(TOP);
+    // setVerticalAlignment(TOP);
   }
 
   public void setAlign(int alignment) {

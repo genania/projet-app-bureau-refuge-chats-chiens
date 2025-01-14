@@ -4,11 +4,15 @@ import Refuge.App;
 import Refuge.Swinger.Bar;
 import Refuge.Swinger.Icon;
 import Refuge.Swinger.Label;
+import Refuge.Swinger.Modal;
 import Refuge.Swinger.Palette;
 import Refuge.View.Modal.AccountModal;
 import Refuge.View.Modal.AddAnimalModal;
 import Refuge.View.Modal.ContactModal;
 import Refuge.View.Modal.HelpModal;
+import Refuge.View.Modal.ModalContact;
+import Refuge.View.Modal.ModalHelp;
+import Refuge.View.Modal.ModalAccount;
 import Refuge.View.Modal.SearchModal;
 import Refuge.View.Page.PageCat;
 import Refuge.View.Page.PageDog;
@@ -35,14 +39,14 @@ public class BarBase extends Bar {
 
   protected void ajouterBoutonContact() {
     this.ajouterBoutonGauche("Contact", () -> {
-      new ContactModal(App.getWindow()).setVisible(true);
-      // TODO Afficher Contact
+      // new ContactModal(App.getWindow()).setVisible(true);
+      new ModalContact();
     });
   }
 
   protected void ajouterBoutonAide() {
     this.ajouterBoutonGauche("Aide", () -> {
-      new HelpModal(App.getWindow()).setVisible(true);
+      new ModalHelp();
     });
   }
 
@@ -70,7 +74,7 @@ public class BarBase extends Bar {
 
   protected void ajouterBoutonCreerCompte() {
     ajouterBoutonDroit("Créer un compte", () -> {
-      new AccountModal(App.getWindow()).setVisible(true); // TODO Afficher model Créer un compte
+      new ModalAccount();
     });
   }
 
@@ -92,7 +96,7 @@ public class BarBase extends Bar {
         this.getFrame().getHeight() / 2.0);
 
     icon.setBackgroundColor(this.getColor());
-    icon.setColor(Palette.LIGHT0_SOFT);
+    icon.setColor(Palette.LIGHT1);
 
     icon.addClick(() -> {
       App.getWindow().clear();

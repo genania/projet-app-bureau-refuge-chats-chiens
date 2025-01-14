@@ -15,7 +15,7 @@ import Refuge.View.Page.PageWelcome;
 public class Bar extends JPanel implements Palette {
 
   private Frame frame = new Frame();
-  private Color color = DARK0_SOFT;
+  private Color color = DARK1;
   private Size padding = new Size(0.01, 0.01);
   private double width = 0.14;
   public ArrayList<Button> buttons = new ArrayList<Button>(); // buttons

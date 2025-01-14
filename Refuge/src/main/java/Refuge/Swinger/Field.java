@@ -28,7 +28,6 @@ public class Field extends JTextField {
   }
 
   public Field(String text, double x, double y, double width, double height) {
-
     this.frame = new Frame(x, y, width, height);
 
     setBounds(this.frame.toRectangle());
@@ -39,10 +38,11 @@ public class Field extends JTextField {
 
   public void customize() {
     setBounds(frame.toRectangle());
-    setBorder(BorderFactory.createEmptyBorder());
+    // setBorder(BorderFactory.createEmptyBorder());
+    setBorder(BorderFactory.createLineBorder(Palette.GREEN, 4));
     setEditable(true);
-    setBackground(Palette.PURPLE);
-    setForeground(Palette.LIGHT0_SOFT);
+    setBackground(Palette.DARK3);
+    setForeground(Palette.LIGHT0);
     setFont(Text.MEDIUM_TEXT); // Initialize object
     setHorizontalAlignment(alignment);
   }

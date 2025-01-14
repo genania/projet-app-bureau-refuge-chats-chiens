@@ -1,10 +1,6 @@
 package Refuge.Swinger;
 
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 public class Button extends JButton implements Palette {
@@ -68,7 +64,7 @@ public class Button extends JButton implements Palette {
     setBorderPainted(false);
     setBounds(frame.toRectangle());
     setBackground(defaultColor);
-    setForeground(LIGHT0_SOFT);
+    setForeground(LIGHT0);
     setFocusPainted(false);
     setFont(Text.MEDIUM_TEXT);
     setupHoverEffect();

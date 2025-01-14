@@ -8,9 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connexion {
-  // Database Configuration Constants
-  // Note: If using Docker Toolbox on Windows, you might need to use
-  // "host.docker.internal" instead of "localhost"
   private static final String DB_HOST = "localhost";
   private static final String DB_PORT = "3306"; // Should match your ${MYSQL_PORT}
   private static final String DB_NAME = "bd_refuge";
@@ -35,7 +32,7 @@ public class Connexion {
       connexion = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
       statement = connexion.createStatement();
 
-      System.out.println("Database connection established successfully!");
+      // System.out.println("Database connection established successfully!");
 
     } catch (ClassNotFoundException e) {
       System.err.println("MySQL JDBC Driver not found!");

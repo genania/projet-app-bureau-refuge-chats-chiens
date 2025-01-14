@@ -18,31 +18,6 @@ public class Icon extends JPanel {
   private Color hover = Palette.YELLOW;
   private Color background = Palette.RED;
 
-  // public Icon(String resourcePath, double x, double y, double size) {
-  // double width = size * ((double) App.getSize().getHeight() / (double)
-  // App.getSize().getWidth());
-  // this.frame = new Frame(x, y, width, size);
-  // Rectangle rect = this.frame.toRectangle();
-  // setBounds(rect);
-  // setBackground(Palette.AQUA);
-  // setColor(Palette.LIGHT0_SOFT);
-
-  // try {
-  // // Load original image
-  // originalImage = ImageIO.read(getClass().getResourceAsStream(resourcePath));
-
-  // // Create colored image with correct dimensions
-  // coloredImage = new BufferedImage(rect.width, rect.height,
-  // BufferedImage.TYPE_INT_ARGB);
-
-  // // Initial draw of the colored image
-  // updateColoredImage();
-
-  // } catch (IOException e) {
-  // e.printStackTrace();
-  // }
-  // }
-
   public Icon(String resourcePath, double x, double y, double size) {
     double ratio = App.getSize().getHeight() / App.getSize().getWidth();
     // double iconSize = 0.15;
@@ -53,7 +28,7 @@ public class Icon extends JPanel {
     Rectangle rect = this.frame.toRectangle();
     setBounds(rect);
     setBackground(Palette.AQUA);
-    setColor(Palette.LIGHT0_SOFT);
+    setColor(Palette.LIGHT1);
 
     try {
       // Load original image
@@ -70,36 +45,6 @@ public class Icon extends JPanel {
       e.printStackTrace();
     }
   }
-
-  // public Icon(String resourcePath, double x, double y, double size) {
-  // double ratio = (double) App.getSize().getHeight() / (double)
-  // App.getSize().getWidth();
-  // double width = size * ratio;
-  // double r = ((double) App.getSize().getWidth() / (double)
-  // App.getSize().getHeight());
-  // double liW = r * size;
-
-  // this.frame = new Frame(x + liW / 2 - width / 2, y, width, size);
-  // Rectangle rect = this.frame.toRectangle();
-  // setBounds(rect);
-  // setBackground(Palette.AQUA);
-  // setColor(Palette.LIGHT0_SOFT);
-
-  // try {
-  // // Load original image
-  // originalImage = ImageIO.read(getClass().getResourceAsStream(resourcePath));
-
-  // // Create colored image with correct dimensions
-  // coloredImage = new BufferedImage(rect.width, rect.height,
-  // BufferedImage.TYPE_INT_ARGB);
-
-  // // Initial draw of the colored image
-  // updateColoredImage();
-
-  // } catch (IOException e) {
-  // e.printStackTrace();
-  // }
-  // }
 
   public void addClick(Runnable action) {
     addMouseListener(new MouseAdapter() {

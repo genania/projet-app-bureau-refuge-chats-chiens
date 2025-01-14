@@ -36,18 +36,12 @@ public class PageLogin extends PageBase {
   public static void log(Window window) {
     logged = true;
 
-    // TODO:
-    // conditions pour se connecter, aucune information entree = connexion
-    // comme visiteur (pour juste voir les animaux)
-    // voir Model.Account + Model.Visitor
-    // remplacer la ligne logged = true;
-
     System.out.println("Nom d'utilisateur : " + username.getText());
     System.out.println("Mot de passe : " + password.getText());
 
     if (logged) {
       clear(window);
-      PageAdmin.open(window); // TODO: ce log sur Admin, doit modifier pour logger selon Admin/Employer
+      PageAdmin.open(window);
     }
   }
 
