@@ -13,7 +13,7 @@ public class BarVisitor extends BarBase {
         super(); // Appel au constructeur de la classe BarBase
 
         // Configuration générale de la barre
-        setBackground(Palette.DARK0_SOFT);
+        setBackground(Palette.DARK1);
         setLayout(null);
         // Ajouter Bouton Specifique à gauche
         ajouterBoutonAide();

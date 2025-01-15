@@ -4,7 +4,6 @@ import Refuge.Swinger.*;
 import java.awt.Color;
 
 public class BarEmployer extends BarBase {
-
     public BarEmployer() {
         super(); // Appel au constructeur de la classe BarBase
 
@@ -21,7 +20,5 @@ public class BarEmployer extends BarBase {
         ajouterBoutonChien();
         ajouterBoutonChat();
         ajouterBoutonRecherche();
-
     }
-
 }

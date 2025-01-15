@@ -2,6 +2,7 @@ Refuge/Swinger/Card$1.class
 Refuge/Swinger/Icon$2.class
 Refuge/Model/Visitor.class
 Refuge/Swinger/Button.class
+Refuge/Swinger/Photo$2.class
 Refuge/Swinger/Form.class
 Refuge/Swinger/Scroll.class
 Refuge/Swinger/Scroll$1.class
@@ -15,6 +16,7 @@ Refuge/View/Page/PageAnimalDetails.class
 Refuge/Swinger/Icon.class
 Refuge/View/Bar/BarAdmin.class
 Refuge/Swinger/Frame.class
+Refuge/Swinger/Photo.class
 Refuge/Model/Account.class
 Refuge/Model/Dog.class
 Refuge/View/Page/PageWelcome.class
@@ -38,7 +40,6 @@ Refuge/Control/Database.class
 Refuge/Swinger/Icon$1.class
 Refuge/View/Modal/ContactModal.class
 Refuge/Swinger/Size.class
-Refuge/View/Page/PageBase$CustomScrollBarUI.class
 Refuge/View/Modal/AddAnimalModal.class
 Refuge/Swinger/Palettes/Melange.class
 Refuge/View/Modal/ModalAccount.class
@@ -50,9 +51,11 @@ Refuge/View/Modal/HelpModal.class
 Refuge/Swinger/Palette.class
 Refuge/View/Bar/BarEmployer.class
 Refuge/Swinger/Combo.class
+Refuge/Swinger/Card$2.class
 Refuge/View/Modal/SearchModal.class
 Refuge/Control/Connexion.class
 Refuge/Swinger/Card.class
+Refuge/Swinger/Scroll$2.class
 Refuge/Swinger/Modal.class
 Refuge/View/Modal/ModalContact.class
 Refuge/View/Bar/BarWelcome.class
@@ -61,3 +64,4 @@ Refuge/Swinger/Text.class
 Refuge/Swinger/Label.class
 Refuge/Swinger/Button$1.class
 Refuge/View/Page/PageEmployee.class
+Refuge/Swinger/Photo$1.class

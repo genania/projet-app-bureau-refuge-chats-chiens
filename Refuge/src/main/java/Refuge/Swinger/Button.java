@@ -5,7 +5,7 @@ import javax.swing.JButton;
 
 public class Button extends JButton implements Palette {
   private Frame frame;
-  private Color defaultColor = BLUE;
+  private Color defaultColor = GRAY;
   private Color hoverColor = YELLOW;
 
   public Button() {

@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame implements Palette {
-  private Color background = DARK0_HARD;
+  private Color background = DARK2;
   private Bar bar;
 
   public Window() {
@@ -19,11 +19,19 @@ public class Window extends JFrame implements Palette {
       setLayout(null);
 
       ImageIcon icon = new ImageIcon(getClass().getResource("/icones/placeholder.png"));
+
       setIconImage(icon.getImage());
     });
 
-    addKeybinding(KeyEvent.VK_ESCAPE, 0, this::dispose);
-    addKeybinding(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK, () -> dispose());
+    // addKeybinding(KeyEvent.VK_ESCAPE, 0, this::dispose);
+    addKeybinding(KeyEvent.VK_ESCAPE, 0, () -> {
+      this.dispose();
+      System.exit(0);
+    });
+    addKeybinding(KeyEvent.VK_C, KeyEvent.CTRL_DOWN_MASK, () -> {
+      this.dispose();
+      System.exit(0);
+    });
   }
 
   public void putScrollable(JScrollPane scrollPane) {

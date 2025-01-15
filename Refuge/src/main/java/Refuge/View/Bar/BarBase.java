@@ -59,7 +59,7 @@ public class BarBase extends Bar {
 
   protected void ajouterBoutonChien() {
     ajouterBoutonDroit("Chien", () -> {
-      System.out.println("Page Chien ouverte");
+      // System.out.println("Page Chien ouverte");
       PageDog.open(App.getWindow()); // Utiliser App.getWindow() à la place de window
     });
   }

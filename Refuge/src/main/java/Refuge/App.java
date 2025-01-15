@@ -3,7 +3,7 @@ package Refuge;
 import Refuge.Control.Connexion;
 import Refuge.Model.*;
 import Refuge.Swinger.*;
-import Refuge.View.Page.PageWelcome;
+import Refuge.View.Page.*;
 import java.awt.Dimension;
 
 public class App {
@@ -17,7 +17,7 @@ public class App {
 
     size = window.getSize();
 
-    PageWelcome.open(window);
+    PageVisitor.open(window);
 
     window.showBar();
     window.open();
