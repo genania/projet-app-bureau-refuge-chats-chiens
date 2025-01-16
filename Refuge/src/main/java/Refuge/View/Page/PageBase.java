@@ -37,10 +37,10 @@ public abstract class PageBase {
     double cardHeight = cardWidth * 2.0;
 
     for (Animal animal : animals) {
-      System.out.println(animal.getNom());
       Card card = new Card(animal, pad + column * (cardWidth + pad), pad + row * (cardHeight + pad), cardWidth,
           cardHeight);
 
+      cardHeight = card.getCardWidth();
       panel.add(card);
 
       column++;

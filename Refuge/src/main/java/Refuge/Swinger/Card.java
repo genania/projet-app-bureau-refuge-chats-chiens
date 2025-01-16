@@ -18,14 +18,19 @@ public class Card extends JPanel {
     this.frame = new Frame(x, y, width, height);
     this.animal = animal;
 
+    setBounds(this.frame.toRectangle());
     customize();
-
     int panelWidth = getWidth();
-    int panelHeight = getHeight();
+    // int panelHeight = getHeight();
+    int panelHeight = (int) (panelWidth * 1.5);
 
+    this.frame.setHeight((panelHeight - 20) / App.getSize().getHeight());
+
+    setBounds(this.frame.toRectangle());
+    // System.out.println(this.frame);
     JPanel panel = new JPanel();
 
-    panel.setBounds(10, 10, panelWidth - 20, panelHeight - 20);
+    panel.setBounds(10, 10, panelWidth - 20, panelHeight - 40);
     panel.setLayout(null);
     panel.setBackground(Palette.DARK2);
     panel.setForeground(Palette.LIGHT1);
@@ -44,9 +49,13 @@ public class Card extends JPanel {
         int y = getHeight() / 2;
         // Draw the outline
         g2d.setColor(Palette.DARK2);
-        g2d.setStroke(new BasicStroke((int) (panelWidth * 0.025)));
+        // g2d.setStroke(new BasicStroke((int) (panelWidth * 0.025)));
+        g2d.setStroke(new BasicStroke((int) (font.getSize() * 0.1)));
+
+        setBounds(0, (int) (panel.getHeight() * 0.5), panelWidth, (int) (panel.getHeight() * 0.95));
 
         Shape textShape = font.createGlyphVector(g2d.getFontRenderContext(), text).getOutline(x, y);
+
         g2d.draw(textShape);
 
         Color color = Palette.BLUE;
@@ -54,7 +63,6 @@ public class Card extends JPanel {
         if (animal.getSexe().equals("F")) {
           color = Palette.RED;
         }
-        // Fill with white color
         g2d.setColor(color);
         g2d.fill(textShape);
       }
@@ -64,13 +72,12 @@ public class Card extends JPanel {
     Font currentFont = name.getFont();
     Font newFont = currentFont.deriveFont(Font.BOLD, (float) optimalSize);
 
-    name.setBounds(0, (int) (panelHeight * 0.6375), panelWidth, (int) (panelHeight * 0.6));
     name.setAlign(1);
     name.setFont(newFont);
 
     add(name);
 
-    picture = new Photo("/" + animal.getCheminPhotos().get(0), 0.0, 0.0, width, height);
+    picture = new Photo("/" + animal.getCheminPhotos().get(0), 0.0, 0.0, panel.getWidth(), panel.getHeight());
 
     int pictureWidth = picture.getWidth();
     int pictureHeight = picture.getHeight();
@@ -90,11 +97,14 @@ public class Card extends JPanel {
 
   private void customize() {
     setLayout(null);
-    setBounds(frame.toRectangle());
     setBackground(Palette.DARK2);
     setForeground(Palette.LIGHT1);
-    setFont(Text.MEDIUM_TEXT);
+    // setFont(Text.MEDIUM_TEXT);
     setupMouseListeners();
+  }
+
+  public double getCardWidth() {
+    return this.frame.getHeight();
   }
 
   private void setupMouseListeners() {

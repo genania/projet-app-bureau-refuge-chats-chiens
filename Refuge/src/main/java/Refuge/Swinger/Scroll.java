@@ -87,7 +87,7 @@ public class Scroll extends JScrollPane {
     // view.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
     JScrollBar verticalBar = getVerticalScrollBar();
-
+    verticalBar.setUnitIncrement(16); // Default is usually 1
     verticalBar.setPreferredSize(new Size(0.01, 0.0).toDimension()); // Set scrollbar width
     verticalBar.setUI(new BasicScrollBarUI() {
       @Override

@@ -12,5 +12,4 @@ public class PageVisitor extends PageBase {
         window.revalidate();
         window.repaint();
     }
-
 }
