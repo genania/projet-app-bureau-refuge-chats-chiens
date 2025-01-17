@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 
 import Refuge.App;
 import Refuge.Model.Animal;
+import Refuge.View.Modal.ModalAnimal;
 import Refuge.View.Page.PageAnimalDetails;
 
 public class Card extends JPanel {
@@ -18,16 +19,16 @@ public class Card extends JPanel {
     this.frame = new Frame(x, y, width, height);
     this.animal = animal;
 
-    setBounds(this.frame.toRectangle());
     customize();
+    setBounds(this.frame.toRectangle());
+
     int panelWidth = getWidth();
-    // int panelHeight = getHeight();
     int panelHeight = (int) (panelWidth * 1.5);
 
     this.frame.setHeight((panelHeight - 20) / App.getSize().getHeight());
 
     setBounds(this.frame.toRectangle());
-    // System.out.println(this.frame);
+
     JPanel panel = new JPanel();
 
     panel.setBounds(10, 10, panelWidth - 20, panelHeight - 40);
@@ -82,7 +83,8 @@ public class Card extends JPanel {
     int pictureWidth = picture.getWidth();
     int pictureHeight = picture.getHeight();
 
-    Dimension coverDimensions = calculateCoverDimensions(panelWidth, panelHeight,
+    Dimension coverDimensions = calculateCoverDimensions(
+        panelWidth, panelHeight,
         pictureWidth, pictureHeight);
 
     int pictureX = (panelWidth - coverDimensions.width) / 2;
@@ -114,6 +116,7 @@ public class Card extends JPanel {
         if (e.getClickCount() == 1) {
           Window window = (Refuge.Swinger.Window) SwingUtilities.getWindowAncestor(Card.this);
           PageAnimalDetails.open(window, animal);
+          // new ModalAnimal(animal);
         }
       }
 

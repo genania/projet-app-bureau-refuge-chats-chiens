@@ -23,7 +23,6 @@ public class Window extends JFrame implements Palette {
       setIconImage(icon.getImage());
     });
 
-    // addKeybinding(KeyEvent.VK_ESCAPE, 0, this::dispose);
     addKeybinding(KeyEvent.VK_ESCAPE, 0, () -> {
       this.dispose();
       System.exit(0);

@@ -26,8 +26,8 @@ public class Photo extends JPanel {
           coloredImage.getWidth() / App.getSize().getWidth(),
           coloredImage.getHeight() / App.getSize().getHeight());
 
-      Rectangle rect = this.frame.toRectangle();
-      setBounds(rect);
+      setBounds(this.frame.toRectangle());
+      setLayout(null);
     } catch (IOException e) {
       e.printStackTrace();
     }

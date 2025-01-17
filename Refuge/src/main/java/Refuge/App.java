@@ -3,6 +3,8 @@ package Refuge;
 import Refuge.Control.Connexion;
 import Refuge.Model.*;
 import Refuge.Swinger.*;
+import Refuge.View.Modal.ModalAnimal;
+import Refuge.View.Modal.ModalSearch;
 import Refuge.View.Page.*;
 import java.awt.Dimension;
 
@@ -21,6 +23,7 @@ public class App {
 
     window.showBar();
     window.open();
+    new ModalSearch();
   }
 
   public static Dimension getSize() {

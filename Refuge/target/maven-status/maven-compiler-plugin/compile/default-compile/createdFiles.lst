@@ -15,8 +15,10 @@ Refuge/View/Modal/ModalHelp.class
 Refuge/View/Page/PageAnimalDetails.class
 Refuge/Swinger/Icon.class
 Refuge/View/Bar/BarAdmin.class
+Refuge/Swinger/Modal$1.class
 Refuge/Swinger/Frame.class
 Refuge/Swinger/Photo.class
+Refuge/View/Modal/ModalAnimal.class
 Refuge/Model/Account.class
 Refuge/Model/Dog.class
 Refuge/View/Page/PageWelcome.class
@@ -44,6 +46,7 @@ Refuge/View/Modal/AddAnimalModal.class
 Refuge/Swinger/Palettes/Melange.class
 Refuge/View/Modal/ModalAccount.class
 Refuge/Swinger/Window$1.class
+Refuge/View/Modal/ModalSearch.class
 Refuge/View/Page/PageBase.class
 Refuge/App.class
 Refuge/Swinger/Window.class

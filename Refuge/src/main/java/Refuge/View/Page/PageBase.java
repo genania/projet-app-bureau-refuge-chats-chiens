@@ -1,6 +1,9 @@
 package Refuge.View.Page;
 
 import javax.swing.*;
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import Refuge.Model.Animal;
@@ -29,6 +32,12 @@ public abstract class PageBase {
 
     panel.setBackground(Palette.DARK3);
     panel.setLayout(null);
+
+    Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+    double ratio = size.getWidth() / size.getHeight();
+    if (ratio >= 2.0) {
+      columns = 10;
+    }
 
     double pad = 0.02;
     double scrollWidth = 1.0;
@@ -74,5 +83,9 @@ public abstract class PageBase {
     // for (Animal animal : animals) {
     // System.out.println(animal.getEspece());
     // }
+  }
+
+  public static List<Animal> getAnimals() {
+    return animals;
   }
 }

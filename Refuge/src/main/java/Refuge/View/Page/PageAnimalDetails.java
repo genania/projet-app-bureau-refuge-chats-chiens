@@ -133,8 +133,9 @@ public class PageAnimalDetails {
 
         // Bouton retour
         Button backButton = new Button("Retour", 0.05, 0.06, 0.1, 0.04);
-        backButton.addActionListener(e -> {
-            NavigationManager.navigateTo(window, () -> PageAnimalDetails.open(window, animal));
+        backButton.onClick(() -> {
+            window.clear();
+            PageVisitor.open(window);
         });
         window.put(backButton);
     }

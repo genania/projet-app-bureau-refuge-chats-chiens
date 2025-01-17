@@ -12,6 +12,7 @@ import Refuge.View.Modal.ContactModal;
 import Refuge.View.Modal.HelpModal;
 import Refuge.View.Modal.ModalContact;
 import Refuge.View.Modal.ModalHelp;
+import Refuge.View.Modal.ModalSearch;
 import Refuge.View.Modal.ModalAccount;
 import Refuge.View.Modal.SearchModal;
 import Refuge.View.Page.PageCat;
@@ -67,8 +68,8 @@ public class BarBase extends Bar {
   protected void ajouterBoutonRecherche() {
     ajouterBoutonDroit("Recherche", () -> {
       System.out.println("Page Recherche ouverte");
-      new SearchModal(App.getWindow()).setVisible(true);
-
+      // new SearchModal(App.getWindow()).setVisible(true);
+      new ModalSearch();
     });
   }
 

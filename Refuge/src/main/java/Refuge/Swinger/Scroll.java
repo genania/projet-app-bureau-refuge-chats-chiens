@@ -77,14 +77,9 @@ public class Scroll extends JScrollPane {
 
   public Scroll(JPanel panel, double x, double y, double width, double height) {
     setBounds(new Frame(x, y, width, height).toRectangle());
-    // setBorder(BorderFactory.createLineBorder(Palette.GREEN, 0));
     setBorder(BorderFactory.createEmptyBorder());
     setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     setViewportView(panel);
-
-    // JComponent view = (JComponent) getViewport().getView();
-
-    // view.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
     JScrollBar verticalBar = getVerticalScrollBar();
     verticalBar.setUnitIncrement(16); // Default is usually 1
