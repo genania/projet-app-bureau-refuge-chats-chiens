@@ -28,6 +28,15 @@ public class Modal extends JDialog {
     addKey(KeyEvent.VK_ESCAPE, () -> {
       this.dispose();
     });
+
+    String iconPath = "/icones/help_icon.png";
+    java.net.URL iconURL = getClass().getResource(iconPath);
+    if (iconURL != null) {
+      ImageIcon icon = new ImageIcon(iconURL);
+      setIconImage(icon.getImage());
+    } else {
+      System.err.println("Icône non trouvée : " + iconPath);
+    }
   }
 
   public void addKey(int keyCode, Runnable action) {
