@@ -19,11 +19,10 @@ public class App {
 
     size = window.getSize();
 
-    PageVisitor.open(window);
+    PageWelcome.open(window);
 
     window.showBar();
     window.open();
-    new ModalSearch();
   }
 
   public static Dimension getSize() {
