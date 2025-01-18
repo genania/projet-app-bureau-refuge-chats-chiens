@@ -29,7 +29,7 @@ public class Modal extends JDialog {
       this.dispose();
     });
 
-    String iconPath = "/icones/help_icon.png";
+    String iconPath = "/icones/placeholder.png";
     java.net.URL iconURL = getClass().getResource(iconPath);
     if (iconURL != null) {
       ImageIcon icon = new ImageIcon(iconURL);

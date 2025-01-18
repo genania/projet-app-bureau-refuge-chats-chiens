@@ -8,7 +8,7 @@ public class ModalHelp extends Modal {
 
         setTitle("Aide");
 
-        Icon icon = new Icon("/icones/placeholder2.png", 0.05, 0.025, 0.025);
+        Icon icon = new Icon("/icones/placeholder.png", 0.05, 0.025, 0.025);
 
         icon.setBackground(Palette.DARK0_SOFT);
         icon.setColor(Palette.LIGHT0_SOFT);
