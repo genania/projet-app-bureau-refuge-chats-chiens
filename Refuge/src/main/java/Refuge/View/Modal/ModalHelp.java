@@ -15,7 +15,7 @@ public class ModalHelp extends Modal {
 
         add(icon);
 
-        Label title = new Label("Besoin d'aide ?", 0.2, 0.025, 0.1, 0.025);
+        Label title = new Label("Besoin d'aide ?", 0.2, 0.025, 0.15, 0.025);
 
         title.setAlign(1);
 

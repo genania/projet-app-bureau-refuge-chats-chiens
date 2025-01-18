@@ -31,7 +31,7 @@ public class ModalContact extends Modal {
 
         add(send);
 
-        Label mail = new Label("Votre courriel", 0.025, 0.1375, 0.1, 0.025);
+        Label mail = new Label("Votre courriel", 0.025, 0.1375, 0.15, 0.025);
 
         add(mail);
         add(courriel);
