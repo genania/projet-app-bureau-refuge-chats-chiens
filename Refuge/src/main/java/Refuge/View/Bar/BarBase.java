@@ -14,7 +14,9 @@ import Refuge.View.Modal.ModalContact;
 import Refuge.View.Modal.ModalHelp;
 import Refuge.View.Modal.ModalSearch;
 import Refuge.View.Modal.ModalAccount;
+import Refuge.View.Modal.ModalAddAnimal;
 import Refuge.View.Modal.SearchModal;
+import Refuge.View.Modal.ModalAddAnimal;
 import Refuge.View.Page.PageCat;
 import Refuge.View.Page.PageDog;
 import Refuge.View.Page.PageLogin;
@@ -88,7 +90,7 @@ public class BarBase extends Bar {
   protected void ajouterBoutonAjouterAnimal() {
     ajouterBoutonDroit("Ajouter un Animal", () -> {
       System.out.println("Page Ajouter un Animal ouverte");
-      new AddAnimalModal(App.getWindow()).setVisible(true);
+      new ModalAddAnimal().setVisible(true);
     });
   }
 
