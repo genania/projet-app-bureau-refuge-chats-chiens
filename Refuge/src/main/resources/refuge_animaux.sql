@@ -183,7 +183,6 @@ CREATE TABLE `employe` (
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-
 --
 -- Dumping data for table `employe`
 --
@@ -192,15 +191,37 @@ INSERT INTO `employe` (`nom`, `prenom`, `sexe`, `date_naissance`, `courriel`, `c
 ('Dubois', 'Marie', 'F', '1985-06-15', 'marie.dubois@refuge-animaux.com', '514-555-1234', 'Soins Vétérinaires', 'Vétérinaire Chef'),
 ('Martin', 'Thomas', 'M', '1990-03-22', 'thomas.martin@refuge-animaux.com', '514-555-2345', 'Soins Quotidiens', 'Soigneur Animalier'),
 ('Bernard', 'Sophie', 'F', '1988-11-30', 'sophie.bernard@refuge-animaux.com', '514-555-3456', 'Administration', 'Responsable Administrative'),
-('Petit', 'Lucas', 'M', '1992-09-05', 'lucas.petit@refuge-animaux.com', '514-555-4567', 'Comportement Animal', 'Comportementaliste'),
 ('Dubois', 'Emma', 'F', '1987-12-18', 'emma.dubois@refuge-animaux.com', '514-555-5678', 'Accueil', 'Conseillère Adoption'),
-('Moreau', 'Paul', 'M', '1983-04-25', 'paul.moreau@refuge-animaux.com', '514-555-6789', 'Maintenance', 'Agent d\'Entretien'),
-('Robert', 'Julie', 'F', '1991-07-08', 'julie.robert@refuge-animaux.com', '514-555-7890', 'Soins Vétérinaires', 'Assistante Vétérinaire'),
-('Simon', 'Antoine', 'M', '1986-02-14', 'antoine.simon@refuge-animaux.com', '514-555-8901', 'Communication', 'Responsable Communication'),
-('Laurent', 'Céline', 'F', '1989-10-27', 'celine.laurent@refuge-animaux.com', '514-555-9012', 'Accueil', 'Agent d\'Accueil'),
 ('Michel', 'Alexandre', 'M', '1993-01-20', 'alexandre.michel@refuge-animaux.com', '514-555-0123', 'Soins Quotidiens', 'Soigneur Animalier'),
-('Leroy', 'Sarah', 'F', '1994-05-12', 'sarah.leroy@refuge-animaux.com', '514-555-1234', 'Comportement Animal', 'Éducatrice Canine'),
 ('Garcia', 'David', 'M', '1988-08-30', 'david.garcia@refuge-animaux.com', '514-555-2345', 'Soins Quotidiens', 'Responsable Chatterie'),
 ('Roux', 'Clara', 'F', '1990-11-25', 'clara.roux@refuge-animaux.com', '514-555-3456', 'Communication', 'Photographe Animalier'),
-('Fournier', 'Marc', 'M', '1986-07-14', 'marc.fournier@refuge-animaux.com', '514-555-4567', 'Transport', 'Chauffeur-Secouriste'),
-('Bonnet', 'Lucie', 'F', '1992-03-08', 'lucie.bonnet@refuge-animaux.com', '514-555-5678', 'Soins Vétérinaires', 'Infirmière Animalière');
+('Fournier', 'Marc', 'M', '1986-07-14', 'marc.fournier@refuge-animaux.com', '514-555-4567', 'Transport', 'Chauffeur-Secouriste');
+
+--
+-- Table connexion
+--
+
+DROP TABLE IF EXISTS `connexion`;
+CREATE TABLE `connexion` (
+  `ide` int NOT NULL COMMENT 'Référence à l\'employé',
+  `courriel` varchar(100) NOT NULL UNIQUE COMMENT 'Courriel pour la connexion',
+  `mot_de_passe` varchar(255) NOT NULL COMMENT 'Mot de passe sécurisé',
+  `statut` enum('A', 'I') NOT NULL DEFAULT 'A' COMMENT 'A pour Actif, I pour Inactif',
+  `role` varchar(50) NOT NULL COMMENT 'Rôle de l\'employé (ex: Administrateur, Employé)',
+  PRIMARY KEY (`ide`),
+  FOREIGN KEY (`ide`) REFERENCES `employe`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `connexion`
+--
+
+INSERT INTO `connexion` (`ide`, `courriel`, `mot_de_passe`, `statut`, `role`) VALUES
+(1, 'marie.dubois@refuge-animaux.com', 'hashed_password_1', 'A', 'Administrateur'),
+(2, 'thomas.martin@refuge-animaux.com', 'hashed_password_2', 'A', 'Employé'),
+(3, 'sophie.bernard@refuge-animaux.com', 'hashed_password_3', 'A', 'Responsable Administrative'),
+(4, 'emma.dubois@refuge-animaux.com', 'hashed_password_4', 'A', 'Conseillère Adoption'),
+(5, 'alexandre.michel@refuge-animaux.com', 'hashed_password_5', 'A', 'Soigneur Animalier'),
+(6, 'david.garcia@refuge-animaux.com', 'hashed_password_6', 'A', 'Responsable Chatterie'),
+(7, 'clara.roux@refuge-animaux.com', 'hashed_password_7', 'A', 'Photographe Animalier'),
+(8, 'marc.fournier@refuge-animaux.com', 'hashed_password_8', 'A', 'Chauffeur-Secouriste');
